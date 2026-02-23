@@ -1,16 +1,31 @@
 export default function EventDetails({ assets, data }: any) {
     return (
-        <div className="relative w-full max-w-2xl mx-auto mt-5 flex flex-col align-center items-center justify-center">
-            <div className="top-text order-b-2 border-gray-50 p-3 w-full">
-                <h1 className="text-center text-black text-xl">Detaliile</h1>
-                <h1 className="text-center text-black text-xl">Evenimentuluis</h1>
+        <div className="relative w-full max-w-2xl mx-auto mt-10 flex flex-col align-center items-center justify-center px-2">
+            <div className="relative">
+                <img src={"/images/eventDetailsBg.png"} alt="Details" className="w-full h-auto" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex flex-col text-white text-4xl md:text-5xl font-great-vibes w-fit">
+                        <h1 className="transform -translate-x-8 md:-translate-x-12">Detaliile</h1>
+                        <h1 className="transform translate-x-8 md:translate-x-12">Evenimentului</h1>
+                    </div>
+                </div>
             </div>
-            <div className="middle-text text-green-400 px-10 py-3 text-center">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque quasi, deleniti voluptatum nisi ad a
-                quae accusamus impedit voluptate numquam pariatur. Aut eius ipsum modi, voluptatibus nulla assumenda
-                dolores ex. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium temporibus
-                reprehenderit rerum, nulla eius tempore accusantium. Repellat esse dicta facere eligendi quia omnis,
-                sapiente dolorum molestias voluptatem adipisci odit consequuntur.
+            <div className="middle-text text-gray-600 px-8 py-3 text-center mt-5 font-eb-garamond text-xl flex flex-col gap-5">
+                <p>
+                    Abia asteptam sa sarbatorim ziua noastra speciala alaturi de voi! Iata tot ce trebuie sa stiti
+                    pentru a profita la maximum de eveniment!
+                </p>
+                <h1 className="text-4xl px-4 font-great-vibes">Inceputul Evenimentului</h1>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, alias! Voluptatum rerum, quidem
+                    dolorem voluptate doloribus quae. Non quas quisquam sunt nam qui, enim, voluptatum voluptas officia
+                    quaerat in consectetur.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum optio eligendi in minus vero
+                    officiis quisquam veniam magni laboriosam, repellat soluta recusandae saepe nostrum. Nostrum
+                    deserunt ipsa esse eos illum!
+                </p>
             </div>
         </div>
     );
