@@ -13,7 +13,7 @@ export default function InvitationContainer({ isOpened, onClick }: any) {
                 <img
                     src="/images/closedEnvelope.png"
                     alt="Apasa pentru a deschide"
-                    className="w-full h-auto drop-shadow-2xl animate-bounce-slow"
+                    className="w-full h-auto animate-bounce-slow"
                 />
                 <p className="text-center mt-4 font-serif italic text-gray-500">Apasă pentru a deschide invitația</p>
             </div>

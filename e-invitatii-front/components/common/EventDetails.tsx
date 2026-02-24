@@ -1,4 +1,6 @@
-export default function EventDetails({ assets, data }: any) {
+export default function EventDetails({ data }: any) {
+    const ceremonies = data?.ceremony_details || [];
+
     return (
         <div className="relative w-full max-w-2xl mx-auto mt-10 flex flex-col align-center items-center justify-center px-2">
             <div className="relative">
@@ -15,17 +17,21 @@ export default function EventDetails({ assets, data }: any) {
                     Abia asteptam sa sarbatorim ziua noastra speciala alaturi de voi! Iata tot ce trebuie sa stiti
                     pentru a profita la maximum de eveniment!
                 </p>
-                <h1 className="text-4xl px-4 font-great-vibes">Inceputul Evenimentului</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, alias! Voluptatum rerum, quidem
-                    dolorem voluptate doloribus quae. Non quas quisquam sunt nam qui, enim, voluptatum voluptas officia
-                    quaerat in consectetur.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum optio eligendi in minus vero
-                    officiis quisquam veniam magni laboriosam, repellat soluta recusandae saepe nostrum. Nostrum
-                    deserunt ipsa esse eos illum!
-                </p>
+                <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-b border-gray-100">
+                    Inceputul Evenimentului
+                </h1>
+                {ceremonies.map((item: any, index: number) => (
+                    <div key={index} className="flex flex-col gap-2">
+                        <h2 className="text-4xl px-4 font-great-vibes text-primary">{item.title}</h2>
+
+                        <div className="flex flex-col text-gray-500">
+                            <span className="font-bold text-2xl">{item.hour}</span>
+                            <span className="uppercase tracking-widest text-sm">{item.location}</span>
+                        </div>
+
+                        {index < ceremonies.length - 1 && <div className="text-2xl mt-4 opacity-30">❦</div>}
+                    </div>
+                ))}
             </div>
         </div>
     );
