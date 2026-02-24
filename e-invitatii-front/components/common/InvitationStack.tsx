@@ -28,7 +28,7 @@ export default function InvitationStack({ data }: any) {
             <div className="absolute right-[2%] top-[45%] md:right-[1%] md:top-[40%] z-10 w-[48%] shadow-2xl">
                 <div className="relative">
                     <img src={getImageUrl(data.card_url)} alt="Details" className="w-full h-auto" />
-                    <div className="absolute inset-0 pt-4 px-6 text-center text-gray-700">
+                    <div className="absolute inset-0 pt-2 md:pt-4 px-6 text-center text-gray-700 flex flex-col justify-center">
                         <p className="text-xs tracking-widest font-great-vibes">Noi,</p>
                         <p className="text-xs tracking-widest font-great-vibes">{data.client_names}</p>
                         {details?.parents_section && (
