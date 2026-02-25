@@ -20,7 +20,7 @@ const mockData = {
 
 export async function getInvitation(slug: string) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    const res = await fetch(`${API_URL}/invitations/${slug}`, {
+    const res = await fetch(`${API_URL}/api/invitations/${slug}`, {
         next: { revalidate: 60 },
     });
 

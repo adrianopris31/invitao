@@ -7,6 +7,8 @@ export default function InvitationStack({ data }: any) {
 
     const getImageUrl = (path: string) => `${STORAGE_BASE}/${path}`;
 
+    console.log(getImageUrl(data.cover_url));
+    console.log(getImageUrl(data.card_url));
     const details = data.family_details;
 
     const getDate = (date: Date) => {
