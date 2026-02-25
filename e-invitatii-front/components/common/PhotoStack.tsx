@@ -18,15 +18,15 @@ export default function PhotoStack({ data }: any) {
             <div className="relative">
                 <img src={flowers} alt="Details" className="w-full h-auto" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex flex-col text-white text-2xl md:text-4xl font-eb-garamond w-fit mt-2">
-                        <h1 className="transform ">Din povestea noastra</h1>
+                    <div className="flex flex-col text-white text-4xl md:text-5xl font-eb-garamond w-fit mt-2">
+                        <h1 className="transform font-great-vibes">Noi</h1>
                     </div>
                 </div>
             </div>
             <div className="relative mx-auto w-full min-h-[600px] bg-white flex justify-center items-center p-10 overflow-hidden mt-5">
                 {photos[0] && (
                     <div
-                        className="absolute top-10 left-5 md:left-20 z-10 transform -rotate-6"
+                        className="absolute top-10 left-5 md:left-15 md:top-0 z-10 transform -rotate-6"
                         style={{
                             backgroundColor: "white",
                             padding: "1rem",
@@ -35,7 +35,7 @@ export default function PhotoStack({ data }: any) {
                     >
                         <div className="relative w-48 h-64 md:w-60 md:h-80">
                             <Image
-                                src={getImageUrl(photos[0])}
+                                src={photo1}
                                 alt="Wedding couple"
                                 fill
                                 className="object-cover"
@@ -48,7 +48,7 @@ export default function PhotoStack({ data }: any) {
 
                 {photos[1] && (
                     <div
-                        className="absolute top-4 right-10 md:right-20 z-20 transform rotate-3"
+                        className="absolute top-4 right-10 md:right-15 md:top-0 z-20 transform rotate-3"
                         style={{
                             backgroundColor: "white",
                             padding: "1rem",
@@ -62,13 +62,14 @@ export default function PhotoStack({ data }: any) {
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                unoptimized
                             />
                         </div>
                     </div>
                 )}
                 {photos[2] && (
                     <div
-                        className="absolute bottom-10 left-1/2 z-30 transform -translate-x-1/2 rotate-2"
+                        className="absolute bottom-10 md:bottom-0 left-1/2 z-30 transform -translate-x-1/2 rotate-2"
                         style={{
                             backgroundColor: "white",
                             padding: "1rem",
@@ -82,6 +83,7 @@ export default function PhotoStack({ data }: any) {
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                unoptimized
                             />
                         </div>
                     </div>

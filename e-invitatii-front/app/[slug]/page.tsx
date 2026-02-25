@@ -5,6 +5,7 @@ import InvitationContainer from "@/components/common/InvitationContainer";
 import InvitationView from "@/components/common/InvitationView";
 import PhotoStack from "@/components/common/PhotoStack";
 import TimeLeft from "@/components/common/TimeLeft";
+import { notFound } from "next/navigation";
 const mockData = {
     names: "Joszi & Maria",
     date: "27.09.2026",
@@ -18,7 +19,7 @@ const mockData = {
 };
 
 export async function getInvitation(slug: string) {
-    const API_URL = "http://e-invitatii-back.test";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const res = await fetch(`${API_URL}/invitations/${slug}`, {
         next: { revalidate: 60 },
     });
@@ -36,6 +37,9 @@ export async function getInvitation(slug: string) {
 export default async function Invitation({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const invitation = await getInvitation(slug);
+    if (!invitation) {
+        notFound();
+    }
     return (
         <InvitationView>
             <div className="bg-white">

@@ -7,13 +7,13 @@ interface LocationProps {
 
 export default function EventLocation({ locationName, address }: LocationProps) {
     const simpleMapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
-        locationName + " " + address
+        locationName + " " + address,
     )}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
     return (
         <div className="relative w-full max-w-2xl mx-auto mt-5 flex flex-col align-center items-center justify-center">
             <div className="top-text order-b-2 border-gray-50 p-3 w-full">
-                <h1 className="text-center text-black text-4xl font-eb-garamond">Locatia Evenimentului</h1>
+                <h1 className="text-center text-black text-4xl font-eb-garamond">Locația Evenimentului</h1>
             </div>
             <div className="relative w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-lg border-4 border-white mb-8 p-1 ease-in">
                 <iframe

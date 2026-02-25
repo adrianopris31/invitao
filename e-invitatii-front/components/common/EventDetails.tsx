@@ -14,11 +14,11 @@ export default function EventDetails({ data }: any) {
             </div>
             <div className="middle-text text-gray-600 px-8 py-3 text-center mt-5 font-eb-garamond text-xl flex flex-col gap-5">
                 <p>
-                    Abia asteptam sa sarbatorim ziua noastra speciala alaturi de voi! Iata tot ce trebuie sa stiti
+                    Abia așteptăm sa sărbătorim ziua noastră specială alături de voi! Iată tot ce trebuie să știți
                     pentru a profita la maximum de eveniment!
                 </p>
                 <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-b border-gray-100">
-                    Inceputul Evenimentului
+                    Începutul Evenimentului
                 </h1>
                 {ceremonies.map((item: any, index: number) => (
                     <div key={index} className="flex flex-col gap-2">

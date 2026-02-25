@@ -7,5 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/invitations/{slug}', [InvitationController::class, 'show']);
 

@@ -55,6 +55,20 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
                 <TimeUnit value={timeLeft.minutes} label="Minute" />
                 <TimeUnit value={timeLeft.seconds} label="Secunde" />
             </div>
+
+            <div className="middle-text text-gray-600 px-4 md:px-8 py-3 text-center mt-10 font-eb-garamond text-xl flex flex-col gap-2">
+                <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-gray-100">Confirmarea Prezenței</h1>
+                <p>Vă rugăm șă confirmați prezența și numărul de persoane până la data de:</p>
+                <h1 className="font-bold text-2xl">05.05.2026</h1>
+                <div className="flex justify-center">
+                    <p>Maria - </p>
+                    <p>0755 511 701</p>
+                </div>
+                <div className="flex justify-center">
+                    <p>Iozsi - </p>
+                    <p>0744 815 361</p>
+                </div>
+            </div>
         </div>
     );
 }

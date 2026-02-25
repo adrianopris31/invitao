@@ -9,6 +9,18 @@ const nextConfig: NextConfig = {
             port: '',
             pathname: '/storage/**',
         },
+        {
+            protocol: 'http',
+            hostname: '192.168.0.175',
+            port: '',
+            pathname: '/storage/**',
+        },
+        {
+            protocol: 'http',
+            hostname: '192.168.80.78',
+            port: '',
+            pathname: '/storage/**',
+        },
     ],
 },};
 
