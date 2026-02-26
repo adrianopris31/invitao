@@ -47,7 +47,7 @@ export default function InvitationStack({ data }: any) {
                         onLoadingComplete={() => setIsLoadedLeft(true)}
                         unoptimized
                     />
-                    <div className="absolute inset-0 w-full flex flex-col items-center font-eb-garamond leading-none gap-0 pt-2 px-1 uppercase text-[12px] md:text-xl md:mt-4 text-gray-50">
+                    <div className="absolute inset-0 w-full flex flex-col items-center font-eb-garamond leading-none gap-0 pt-2 uppercase text-[3vw] md:text-xl md:mt-4 text-gray-50">
                         <p>Va asteptam cu drag</p>
                         <p>Sa ne bucuram impreuna</p>
                     </div>
@@ -76,8 +76,8 @@ export default function InvitationStack({ data }: any) {
                         unoptimized
                     />
 
-                    <div className="absolute inset-0 pt-2 md:pt-4 px-6 text-center text-gray-700 flex flex-col justify-center md:gap-2">
-                        <p className="text-xs tracking-widest font-great-vibes md:text-xl">Noi,</p>
+                    <div className="absolute inset-0 pt-2 md:pt-4 px-2 md:px-6 text-center text-gray-700 flex flex-col justify-center md:gap-4">
+                        <p className="text-xs tracking-widest font-eb-garamond md:text-xl">Noi,</p>
                         <p className="text-xs tracking-widest font-great-vibes md:text-xl">{data.client_names}</p>
 
                         {details?.parents_section && (
@@ -86,7 +86,7 @@ export default function InvitationStack({ data }: any) {
                                     {details.parents_section.label}
                                 </span>
                                 {details.parents_section.names.map((name: string, i: number) => (
-                                    <span key={i} className="text-[12px] md:text-[14px]">
+                                    <span key={i} className="text-[10px] md:text-[14px]">
                                         {name}
                                     </span>
                                 ))}
@@ -99,7 +99,7 @@ export default function InvitationStack({ data }: any) {
                                     {details.godparents_section.label}
                                 </span>
                                 {details.godparents_section.names.map((name: string, i: number) => (
-                                    <span key={i} className="text-[12px] md:text-[14px]">
+                                    <span key={i} className="text-[10px] md:text-[14px]">
                                         {name}
                                     </span>
                                 ))}
