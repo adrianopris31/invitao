@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const photo1 = "/images/photo1.png";
+const photo1 = "/images/photo1.jpeg";
 const photo2 = "/images/photo2.png";
-const photo3 = "/images/photo3.png";
+const photo3 = "/images/photo3.jpeg";
 const flowers = "/images/eventMessage.png";
 
 export default function PhotoStack({ data }: any) {
