@@ -77,11 +77,12 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
     if (slug !== "iozsi-maria-2026") {
         notFound();
     }
-    let invitation = await getInvitation(slug);
-    if (!invitation) {
+    let invitation = failData;
+    //let invitation = await getInvitation(slug);
+    /*if (!invitation) {
         //notFound();
         invitation = failData;
-    }
+    }*/
     return (
         <InvitationView>
             <div className="bg-white">
