@@ -5,10 +5,18 @@ import Image from "next/image";
 export default function InvitationStack({ data }: any) {
     const STORAGE_BASE = process.env.NEXT_PUBLIC_STORAGE;
 
-    const getImageUrl = (path: string) => `${STORAGE_BASE}/${path}`;
+    const getImageUrl = (path: string) => {
+        if (!path) return "";
 
-    console.log(getImageUrl(data.cover_url));
-    console.log(getImageUrl(data.card_url));
+        if (path.startsWith("/")) {
+            return path;
+        }
+        if (STORAGE_BASE) {
+            return `${STORAGE_BASE}/${path}`;
+        }
+
+        return `/images/${path}`;
+    };
     const details = data.family_details;
 
     const getDate = (date: Date) => {
@@ -24,14 +32,14 @@ export default function InvitationStack({ data }: any) {
         <div className="relative w-full max-w-2xl mx-auto aspect-3/4 md:aspect-4/6">
             {" "}
             <div className="absolute inset-x-0 top-0 flex justify-center z-0">
-                <img src={"/images/closedEnvelope2.png"} alt="Envelope" className="w-full h-auto drop-shadow-2xl" />
+                <img src={"/images/closedEnvelope2.webp"} alt="Envelope" className="w-full h-auto drop-shadow-2xl" />
             </div>
             <div className="absolute left-[2%] top-[54%] md:left-[1%] md:top-[48%] z-20 w-[45%] transition-transform hover:rotate-0">
                 <div
                     className={`relative shadow-xl overflow-hidden bg-olive-400 aspect-[5/7] ${!isLoadedLeft ? "animate-pulse" : ""}`}
                 >
                     <Image
-                        src={getImageUrl(data.cover_url)}
+                        src={getImageUrl(data.cover_url) || "/images/leftCardCover.jpg"}
                         alt="Cover"
                         width={500}
                         height={700}
@@ -58,7 +66,7 @@ export default function InvitationStack({ data }: any) {
                     className={`relative overflow-hidden bg-stone-100 transition-all duration-500 aspect-[5/7] ${!isLoadedRight ? "animate-pulse" : ""}`}
                 >
                     <Image
-                        src={getImageUrl(data.card_url)}
+                        src={getImageUrl(data.card_url) || "/images/rightCover2.jpg"}
                         alt="Details"
                         width={600}
                         height={800}

@@ -11,7 +11,7 @@ export default function InvitationContainer({ isOpened, onClick }: any) {
         >
             <div className="relative w-full max-w-md p-4 cursor-pointer">
                 <img
-                    src="/images/closedEnvelope.png"
+                    src="/images/closedEnvelope.jpg"
                     alt="Apasa pentru a deschide"
                     className="w-full h-auto animate-bounce-slow"
                 />
