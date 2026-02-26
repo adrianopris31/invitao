@@ -26,7 +26,7 @@ export default function PhotoStack({ data }: any) {
             <div className="relative mx-auto w-full min-h-[600px] bg-white flex justify-center items-center p-10 overflow-hidden mt-5">
                 {photos[0] && (
                     <div
-                        className="absolute top-10 left-5 md:left-15 md:top-0 z-10 transform -rotate-6"
+                        className="absolute top-10 left-2 md:left-15 md:top-0 z-10 transform -rotate-6"
                         style={{
                             backgroundColor: "white",
                             padding: "1rem",
@@ -48,7 +48,7 @@ export default function PhotoStack({ data }: any) {
 
                 {photos[1] && (
                     <div
-                        className="absolute top-4 right-10 md:right-15 md:top-0 z-20 transform rotate-3"
+                        className="absolute top-4 right-0 md:right-15 md:top-0 z-20 transform rotate-3"
                         style={{
                             backgroundColor: "white",
                             padding: "1rem",

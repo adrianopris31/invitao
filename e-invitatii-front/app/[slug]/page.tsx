@@ -24,7 +24,7 @@ const failData = {
     cover_url: "/images/leftCardCover.jpg",
     card_url: "/images/rightCover2.jpg",
     photo_stack: ["/images/photo1.png", "/images/photo2.png", "/images/photo3.png"],
-    event_date: "2026-05-31 16:00:00",
+    event_date: "2026-05-30 16:00:00",
     invitation_description:
         "Vă invităm cu drag să fiți alături de noi la celebrarea dragostei noastre, într-o zi plină de lumină și bucurie.",
     family_details: {
