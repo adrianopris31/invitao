@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const photo1 = "/images/photo1.jpeg";
@@ -15,17 +17,23 @@ export default function PhotoStack({ data }: any) {
 
     return (
         <div className="flex flex-col max-w-2xl mt-10 mx-auto">
-            <div className="relative">
-                <img src={flowers} alt="Details" className="w-full h-auto" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex flex-col text-white text-4xl md:text-5xl font-eb-garamond w-fit mt-2">
-                        <h1 className="transform font-great-vibes">Noi</h1>
-                    </div>
-                </div>
-            </div>
-            <div className="relative mx-auto w-full min-h-[600px] bg-white flex justify-center items-center p-10 overflow-hidden mt-5">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-14"
+            >
+                <p className="text-[11px] uppercase tracking-[0.3em] text-[#7a8c74] mb-3">Povestea noastră</p>
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#3d3429]">Momente Împreună</h2>
+            </motion.div>
+            <div className="relative mx-auto w-full min-h-[600px]  flex justify-center items-center p-10 overflow-hidden mt-5">
                 {photos[0] && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.7 }}
                         className="absolute top-10 left-2 md:left-15 md:top-0 z-10 transform -rotate-6"
                         style={{
                             backgroundColor: "white",
@@ -43,11 +51,15 @@ export default function PhotoStack({ data }: any) {
                                 unoptimized
                             />
                         </div>
-                    </div>
+                    </motion.div>
                 )}
 
                 {photos[1] && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.7 }}
                         className="absolute top-4 right-0 md:right-15 md:top-0 z-20 transform rotate-3"
                         style={{
                             backgroundColor: "white",
@@ -65,10 +77,14 @@ export default function PhotoStack({ data }: any) {
                                 unoptimized
                             />
                         </div>
-                    </div>
+                    </motion.div>
                 )}
                 {photos[2] && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.7 }}
                         className="absolute bottom-10 md:bottom-0 left-1/2 z-30 transform -translate-x-1/2 rotate-2"
                         style={{
                             backgroundColor: "white",
@@ -86,7 +102,7 @@ export default function PhotoStack({ data }: any) {
                                 unoptimized
                             />
                         </div>
-                    </div>
+                    </motion.div>
                 )}
             </div>
         </div>

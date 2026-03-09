@@ -6,6 +6,8 @@ import InvitationView from "@/components/common/InvitationView";
 import PhotoStack from "@/components/common/PhotoStack";
 import TimeLeft from "@/components/common/TimeLeft";
 import { notFound } from "next/navigation";
+import EnvelopeHero from "@/components/updatedUi/EnvelopeHero";
+import Footer from "@/components/updatedUi/Footer";
 const mockData = {
     names: "Joszi & Maria",
     date: "27.09.2026",
@@ -85,14 +87,20 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
     }*/
     return (
         <InvitationView>
-            <div className="bg-white">
+            <div
+                className="min-h-screen"
+                style={{
+                    background: "linear-gradient(180deg, #f4f7f1 0%, #edf2e8 40%, #f4f7f1 70%, #e6eee0 100%)",
+                }}
+            >
                 <h1
                     style={{ color: mockData.primaryColor, fontFamily: mockData.font }}
                     className="text-center p-3 border-b-2 border-gray-50"
                 >
                     {invitation.client_names}
                 </h1>
-                <InvitationStack data={invitation}></InvitationStack>
+                <EnvelopeHero data={invitation}></EnvelopeHero>
+                {/* <InvitationStack data={invitation}></InvitationStack> */}
                 <EventDetails data={invitation}></EventDetails>
                 <EventLocation
                     locationName={invitation.location_name}
@@ -100,6 +108,7 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
                 ></EventLocation>
                 <PhotoStack data={invitation}></PhotoStack>
                 <TimeLeft targetDate={invitation.event_date}></TimeLeft>
+                <Footer eventDate={invitation.event_date} clientNames={invitation.client_names}></Footer>
             </div>
         </InvitationView>
     );

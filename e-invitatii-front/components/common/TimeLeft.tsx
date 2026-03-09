@@ -1,5 +1,5 @@
 "use client"; // Obligatoriu pentru că folosim state și useEffect
-
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function TimeLeft({ targetDate }: { targetDate: string }) {
@@ -56,8 +56,47 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
                 <TimeUnit value={timeLeft.seconds} label="Secunde" />
             </div>
 
-            <div className="middle-text text-gray-600 px-4 md:px-8 py-3 text-center mt-10 font-eb-garamond text-xl flex flex-col gap-2">
-                <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-gray-100">Confirmarea Prezenței</h1>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-14 mt-15"
+            >
+                <div className="inline-block relative">
+                    {/* Banner shape */}
+                    <div className="relative px-10 py-4">
+                        <div
+                            className="absolute inset-0 rounded-md"
+                            style={{
+                                background: "linear-gradient(135deg, #f4f7f1 0%, #e8ede2 150%, #f4f7f1 100%)",
+                                boxShadow: "0 2px 16px rgba(201,169,110,0.15)",
+                            }}
+                        />
+                        {/* Left ribbon tail */}
+                        <div
+                            className="absolute -left-4 top-1/2 -translate-y-1/2 w-6 h-full"
+                            style={{
+                                clipPath: "polygon(100% 0%, 0% 50%, 100% 100%)",
+                                background: "linear-gradient(180deg, #dee7d8, #cbd8c2)",
+                            }}
+                        />
+                        {/* Right ribbon tail */}
+                        <div
+                            className="absolute -right-4 top-1/2 -translate-y-1/2 w-6 h-full"
+                            style={{
+                                clipPath: "polygon(0% 0%, 100% 50%, 0% 100%)",
+                                background: "linear-gradient(180deg, #dee7d8, #cbd8c2)",
+                            }}
+                        />
+                        <h2 className="relative font-serif text-2xl sm:text-3xl text-[#3d3429] tracking-wide">
+                            Confirmarea Prezenței{" "}
+                        </h2>
+                    </div>
+                </div>
+            </motion.div>
+            <div className="middle-text text-gray-600 px-4 md:px-8 py-3 text-center mt-5 font-eb-garamond text-xl flex flex-col gap-2">
+                {/* <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-gray-100">Confirmarea Prezenței</h1> */}
                 <p>Vă rugăm șă confirmați prezența și numărul de persoane până la data de:</p>
                 <h1 className="font-bold text-2xl">05.05.2026</h1>
                 <div className="flex justify-center">
@@ -75,13 +114,19 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
 
 function TimeUnit({ value, label }: { value: number; label: string }) {
     return (
-        <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col items-center min-w-[60px] md:min-w-[80px]"
+        >
             <div className="text-3xl md:text-5xl font-eb-garamond font-light text-gray-800 border-b border-gray-200 pb-2 w-full text-center">
                 {value.toString().padStart(2, "0")}
             </div>
             <span className="text-[10px] md:text-xs uppercase tracking-widest mt-2 text-gray-400 font-sans">
                 {label}
             </span>
-        </div>
+        </motion.div>
     );
 }

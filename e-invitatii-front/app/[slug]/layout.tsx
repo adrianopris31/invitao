@@ -1,9 +1,15 @@
+import Footer from "@/components/updatedUi/Footer";
 export default function InvitationLayout({ children }: { children: React.ReactNode }) {
     return (
-        <section className="invitation-container bg-white min-h-screen">
+        <section
+            className="invitation-container min-h-screen"
+            style={{
+                background: "linear-gradient(180deg, #f4f7f1 0%, #edf2e8 40%, #f4f7f1 70%, #e6eee0 100%)",
+            }}
+        >
             {children}
 
-            <footer className="text-center opacity-100 max-w-2xl mx-auto">
+            {/* <footer className="text-center opacity-100 max-w-2xl mx-auto">
                 <div className="relative">
                     <img src={"/images/eventFooter.png"} alt="Details" className="w-full h-auto" />
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -13,7 +19,7 @@ export default function InvitationLayout({ children }: { children: React.ReactNo
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> */}
         </section>
     );
 }
