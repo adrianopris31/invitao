@@ -54,7 +54,7 @@ export default function PhotoStack({ data }: any) {
                     </motion.div>
                 )}
 
-                {photos[1] && (
+                {photos[2] && (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function PhotoStack({ data }: any) {
                     >
                         <div className="relative w-52 h-72 md:w-64 md:h-96">
                             <Image
-                                src={photo2}
+                                src={photo3}
                                 alt="Couple in garden"
                                 fill
                                 className="object-cover"
@@ -79,7 +79,7 @@ export default function PhotoStack({ data }: any) {
                         </div>
                     </motion.div>
                 )}
-                {photos[2] && (
+                {photos[1] && (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export default function PhotoStack({ data }: any) {
                     >
                         <div className="relative w-56 h-72 md:w-72 md:h-96">
                             <Image
-                                src={photo3}
+                                src={photo2}
                                 alt="Couple in city"
                                 fill
                                 className="object-cover"
