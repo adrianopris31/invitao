@@ -18,8 +18,6 @@ export default function EnvelopeHero({ data }: any) {
             .map((t) => t.charAt(0))
             .join("&");
 
-    console.log(getInitials(data.client_names));
-
     return (
         <section className="relative flex flex-col items-center pt-16 pb-24 px-4 overflow-hidden md:overflow-auto">
             <motion.div
