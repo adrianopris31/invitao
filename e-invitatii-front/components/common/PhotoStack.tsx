@@ -13,7 +13,6 @@ export default function PhotoStack({ data }: any) {
         return `http://e-invitatii-back.test/storage/${path}`;
     };
     const photos = data?.photo_stack || [];
-    console.log(getImageUrl(photos[0]));
 
     return (
         <div className="flex flex-col max-w-2xl mt-10 mx-auto">
