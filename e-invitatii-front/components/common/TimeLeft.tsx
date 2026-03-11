@@ -44,7 +44,7 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
     }
 
     return (
-        <div className="max-w-2xl mx-auto py-12 px-4">
+        <div className="max-w-2xl mx-auto pt-12 pb-6 px-4">
             <h2 className="text-center font-great-vibes text-3xl mb-8 text-gray-600 italic">
                 Până la marele eveniment au mai rămas:
             </h2>

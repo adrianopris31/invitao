@@ -8,6 +8,7 @@ import TimeLeft from "@/components/common/TimeLeft";
 import { notFound } from "next/navigation";
 import EnvelopeHero from "@/components/updatedUi/EnvelopeHero";
 import Footer from "@/components/updatedUi/Footer";
+import ConfirmationForm from "@/components/common/ConfirmationForm";
 const mockData = {
     names: "Joszi & Maria",
     date: "27.09.2026",
@@ -108,6 +109,7 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
                 ></EventLocation>
                 <PhotoStack data={invitation}></PhotoStack>
                 <TimeLeft targetDate={invitation.event_date}></TimeLeft>
+                <ConfirmationForm slug={slug}></ConfirmationForm>
                 <Footer eventDate={invitation.event_date} clientNames={invitation.client_names}></Footer>
             </div>
         </InvitationView>
