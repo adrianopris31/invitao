@@ -33,7 +33,7 @@ export default function PhotoStack({ data }: any) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.7 }}
+                        transition={{ duration: 0.7, type: "spring" }}
                         className="absolute top-10 left-2 md:left-15 md:top-0 z-10 transform -rotate-6"
                         style={{
                             backgroundColor: "white",
@@ -59,7 +59,7 @@ export default function PhotoStack({ data }: any) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.7 }}
+                        transition={{ duration: 0.7, type: "spring", delay: 0.2 }}
                         className="absolute top-4 right-0 md:right-15 md:top-0 z-20 transform rotate-3"
                         style={{
                             backgroundColor: "white",
@@ -84,7 +84,7 @@ export default function PhotoStack({ data }: any) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.7 }}
+                        transition={{ duration: 0.7, type: "spring", delay: 0.4 }}
                         className="absolute bottom-10 md:bottom-0 left-1/2 z-30 transform -translate-x-1/2 rotate-2"
                         style={{
                             backgroundColor: "white",
