@@ -10,10 +10,7 @@ export default function Home() {
                     </h1>
                     <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
                         Verifica <a className="font-medium text-zinc-950 dark:text-zinc-50">link-ul</a> primit sau{" "}
-                        <a
-                            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                            className="font-medium text-zinc-950 dark:text-zinc-50"
-                        >
+                        <a href="" className="font-medium text-zinc-950 dark:text-zinc-50">
                             contacteaza-l
                         </a>{" "}
                         pe cel care ti l-a trimis.
