@@ -1,10 +1,18 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 export default function ConfirmationForm({ slug }: any) {
     const [step, setStep] = useState("button");
+
+    useEffect(() => {
+        const hasConfirmed = localStorage.getItem(`confirmed_${slug}`);
+
+        if (hasConfirmed === "true") {
+            setStep("success");
+        }
+    }, [slug]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -29,6 +37,7 @@ export default function ConfirmationForm({ slug }: any) {
     const [formData, setFormData] = useState({
         name: "",
         guests: 1,
+        email: "",
         definetely_safe: "",
     });
 
@@ -43,7 +52,7 @@ export default function ConfirmationForm({ slug }: any) {
             return;
         }
         try {
-            const response = await fetch("https://sheetdb.io/api/v1/gmvxavg3aavn1", {
+            const response = await fetch("http://127.0.0.1:8000/api/confirm", {
                 method: "POST",
 
                 headers: {
@@ -51,14 +60,10 @@ export default function ConfirmationForm({ slug }: any) {
                 },
 
                 body: JSON.stringify({
-                    data: [
-                        {
-                            Nume: formData.name,
-                            Persoane: formData.guests,
-                            Slug: slug,
-                            Data: new Date().toLocaleString("ro-RO"),
-                        },
-                    ],
+                    name: formData.name,
+                    count: formData.guests,
+                    email: formData.email,
+                    slug: slug,
                 }),
             });
 
@@ -66,7 +71,13 @@ export default function ConfirmationForm({ slug }: any) {
                 toast.success("Te-am trecut pe listă! 🎉", {
                     description: "Mirii au primit confirmarea ta.",
                 });
+                localStorage.setItem(`confirmed_${slug}`, "true");
                 setStep("success");
+            }
+
+            if (response.status === 422) {
+                toast.error("Ești deja pe listă!");
+                setStep("button");
             }
         } catch (error) {
             console.error("Eroare la trimitere:", error);
@@ -147,6 +158,21 @@ export default function ConfirmationForm({ slug }: any) {
                                     min="1"
                                     name="guests"
                                     value={formData.guests}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#cbd8c2] focus:border-transparent outline-none transition-all text-[#7a8c74] bg-white"
+                                />
+                            </motion.div>
+
+                            <motion.div variants={itemVariants} className="space-y-1">
+                                <label className="font-serif text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
+                                    Adresa email
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Ex: popescuion@gmail.com"
+                                    name="email"
+                                    value={formData.email}
                                     onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#cbd8c2] focus:border-transparent outline-none transition-all text-[#7a8c74] bg-white"

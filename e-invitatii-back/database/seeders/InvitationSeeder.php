@@ -16,12 +16,12 @@ class InvitationSeeder extends Seeder
             'cover_url' => 'invitations/leftCardCover.png',
             'card_url' => 'invitations/eventDetailsBg.png',
             'photo_stack' => [
-                'invitations/photo1.png',
+                'invitations/photo1.jpeg',
                 'invitations/photo2.png',
-                'invitations/photo3.png'
+                'invitations/photo3.jpeg'
             ],
-            'event_date' => '2026-05-31 16:00:00',
-            'invitation_description' => 'Vă invităm la celebrarea dragostei noastre...',
+            'event_date' => '2026-05-30 16:00:00',
+            'invitation_description' => "Vă invităm cu drag să fiți alături de noi la celebrarea dragostei noastre, într-o zi plină de lumină și bucurie.",
             'family_details' => [
                 'parents_section' => [
                     'label' => 'CU BINECUVÂNTAREA PĂRINȚILOR',
@@ -38,7 +38,7 @@ class InvitationSeeder extends Seeder
                 [
                     'title' => 'Cununia Religioasă',
                     'hour' => '16:00',
-                    'location' => 'Biserica Reformata din Ocna Mures'
+                    'location' => 'Biserica Reformată din Ocna Mureș'
                 ],
                 [
                     'title' => 'Petrecerea',

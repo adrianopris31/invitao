@@ -6,12 +6,14 @@ const photo1 = "/images/photo1.jpeg";
 const photo2 = "/images/photo2.png";
 const photo3 = "/images/photo3.jpeg";
 const flowers = "/images/eventMessage.png";
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const STORAGE_URL = process.env.NEXT_PUBLIC_STORAGE;
 export default function PhotoStack({ data }: any) {
     const getImageUrl = (path: string) => {
         if (!path) return flowers;
-        return `http://e-invitatii-back.test/storage/${path}`;
+        return `${STORAGE_URL}${path}`;
     };
+    console.log(getImageUrl(data.photo_stack[0]));
     const photos = data?.photo_stack || [];
 
     return (
