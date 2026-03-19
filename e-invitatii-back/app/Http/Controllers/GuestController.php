@@ -14,8 +14,6 @@ class GuestController extends Controller
     }
 
     public function store(Request $request){
-        $guests = Guest::all();
-
         $exists = Guest::where('slug', $request->slug)
             ->where('email', $request->email)
             ->where('created_at', '>', now()->subDay())->exists();
@@ -32,4 +30,14 @@ class GuestController extends Controller
             $guest->save();
         }
     }
-}
+
+    public function update(Request $request) {
+        $guest = Guest::where('slug', $request->slug)->where('email', $request->email)->first();
+
+        if (!$guest) {
+            return response()->json(['message' => 'Nu te-am găsit.'], 404);
+        }
+
+        $guest->update($request->only(['name', 'count']));
+        return response()->json(['message' => 'Am actualizat datele!']);
+    }}

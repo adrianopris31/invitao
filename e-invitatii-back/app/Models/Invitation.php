@@ -14,7 +14,7 @@ class Invitation extends Model
         'envelope_url',
         'cover_url',
         'card_url',
-        'photo_stack', // <--- Verifică astea noi
+        'photo_stack',
         'event_date',
         'invitation_description',
         'family_details',

@@ -61,7 +61,7 @@ const failData = {
 
 export async function getInvitation(slug: string) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    const res = await fetch(`${API_URL}/api/invitations/${slug}`, {
+    const res = await fetch(`${API_URL}invitations/${slug}`, {
         next: { revalidate: 60 },
     });
 
@@ -77,15 +77,15 @@ export async function getInvitation(slug: string) {
 
 export default async function Invitation({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    if (slug !== "iozsi-maria-2026") {
+    // if (slug !== "iozsi-maria-2026") {
+    //     notFound();
+    // }
+    // let invitation = failData;
+    let invitation = await getInvitation(slug);
+    if (!invitation) {
         notFound();
-    }
-    let invitation = failData;
-    //let invitation = await getInvitation(slug);
-    /*if (!invitation) {
-        //notFound();
         invitation = failData;
-    }*/
+    }
     return (
         <InvitationView>
             <div

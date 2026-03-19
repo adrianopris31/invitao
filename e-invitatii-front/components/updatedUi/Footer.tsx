@@ -13,7 +13,7 @@ export default function Footer({ eventDate, clientNames }: any) {
         return `${day} ${capitalizedMonth}, ${year}`;
     }
     return (
-        <footer className="py-20 px-4 text-center">
+        <footer className="py-15 px-4 text-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

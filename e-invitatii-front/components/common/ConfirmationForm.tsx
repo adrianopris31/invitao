@@ -5,10 +5,12 @@ import { toast } from "sonner";
 
 export default function ConfirmationForm({ slug }: any) {
     const [step, setStep] = useState("button");
+    const [isUpdate, setIsUpdate] = useState(false);
 
     useEffect(() => {
         const hasConfirmed = localStorage.getItem(`confirmed_${slug}`);
 
+        console.log(hasConfirmed);
         if (hasConfirmed === "true") {
             setStep("success");
         }
@@ -45,15 +47,19 @@ export default function ConfirmationForm({ slug }: any) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (formData.definetely_safe !== "") {
             setStep("success");
             return;
         }
+        const url = isUpdate ? "update" : "confirm";
+        const method = isUpdate ? "PATCH" : "POST";
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/confirm", {
-                method: "POST",
+            const response = await fetch(`${API_URL}${url}`, {
+                method: method,
 
                 headers: {
                     "Content-Type": "application/json",
@@ -72,10 +78,11 @@ export default function ConfirmationForm({ slug }: any) {
                     description: "Mirii au primit confirmarea ta.",
                 });
                 localStorage.setItem(`confirmed_${slug}`, "true");
+                setIsUpdate(false);
                 setStep("success");
             }
 
-            if (response.status === 422) {
+            if (response.status === 422 && !isUpdate) {
                 toast.error("Ești deja pe listă!");
                 setStep("button");
             }
@@ -129,7 +136,7 @@ export default function ConfirmationForm({ slug }: any) {
                                     name="honeypot"
                                     value={formData.definetely_safe}
                                     onChange={handleChange}
-                                    tabIndex={-1} // Îl scoatem din fluxul de tastă Tab
+                                    tabIndex={-1}
                                     autoComplete="off"
                                 />
                             </div>
@@ -189,7 +196,11 @@ export default function ConfirmationForm({ slug }: any) {
                                 <button
                                     type="button"
                                     className="text-sm text-gray-400 hover:text-red-400 transition-colors py-2"
-                                    onClick={() => setStep("button")}
+                                    onClick={() => {
+                                        isUpdate ? setStep("success") : setStep("button");
+                                        isUpdate ? setIsUpdate(false) : setIsUpdate(true);
+                                        isUpdate ?? localStorage.setItem(`confirmed_${slug}`, "true");
+                                    }}
                                 >
                                     Anulează
                                 </button>
@@ -216,6 +227,19 @@ export default function ConfirmationForm({ slug }: any) {
                                 </motion.div>{" "}
                                 <h3 className="text-2xl font-bold text-gray-600 mb-2 font-serif">Mulțumim!</h3>
                                 <p className="text-[#7a8c74] italic font-eb-garamond">Te-am trecut pe listă!</p>
+                                <p className="text-[#7a8c74] italic font-eb-garamond">
+                                    Ai greșit ceva?{" "}
+                                    <button
+                                        className="underline decoration-dashed underline-offset-4 hover:text-[#5f6d5a] transition-colors cursor-pointer"
+                                        onClick={() => {
+                                            localStorage.removeItem(`confirmed_${slug}`);
+                                            setIsUpdate(true);
+                                            setStep("form");
+                                        }}
+                                    >
+                                        Modifică aici
+                                    </button>
+                                </p>
                             </div>
                         </motion.div>
                     )}

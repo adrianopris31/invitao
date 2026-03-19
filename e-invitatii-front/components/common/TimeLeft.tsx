@@ -1,6 +1,7 @@
 "use client"; // Obligatoriu pentru că folosim state și useEffect
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { getFormattedDate } from "@/utils/formatters";
 
 export default function TimeLeft({ targetDate }: { targetDate: string }) {
     const [timeLeft, setTimeLeft] = useState({
@@ -42,6 +43,11 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
     if (timeLeft.isExpired) {
         return <div className="text-center py-10 font-great-vibes text-2xl">Evenimentul a început deja!</div>;
     }
+
+    const eventDate = new Date(targetDate);
+
+    const rsvpDeadline = new Date(eventDate);
+    rsvpDeadline.setDate(rsvpDeadline.getDate() - 25);
 
     return (
         <div className="max-w-2xl mx-auto pt-12 pb-6 px-4">
@@ -98,7 +104,7 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
             <div className="middle-text text-gray-600 px-4 md:px-8 py-3 text-center mt-5 font-eb-garamond text-xl flex flex-col gap-2">
                 {/* <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-gray-100">Confirmarea Prezenței</h1> */}
                 <p>Vă rugăm să confirmați prezența și numărul de persoane până la data de:</p>
-                <h1 className="font-bold text-2xl">05.05.2026</h1>
+                <h1 className="font-bold text-2xl">{getFormattedDate(rsvpDeadline)}</h1>
                 <div className="flex justify-center">
                     <p>Maria - </p>
                     <p>0755 511 701</p>

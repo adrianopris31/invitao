@@ -108,7 +108,7 @@ export default function EnvelopeHero({ data }: any) {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.4, delay: 1.6, type: "spring" }}
-                            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
+                            className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30"
                         >
                             <div
                                 className="w-10 h-10 rounded-full bg-[#7a8c74] flex items-center justify-center shadow-lg"
