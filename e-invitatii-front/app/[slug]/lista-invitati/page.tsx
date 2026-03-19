@@ -26,7 +26,7 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
                     .map((i) => i.charAt(0).toUpperCase() + i.slice(1))
                     .join(" ")}
             </h1>
-            <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
+            <div className="bg-white shadow-xl rounded-2xl overflow-hidden overflow-x-auto">
                 <table className="w-full text-left">
                     <thead className="bg-[#cbd8c2] text-white uppercase text-xs">
                         <tr>

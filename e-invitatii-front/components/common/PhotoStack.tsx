@@ -13,7 +13,7 @@ export default function PhotoStack({ data }: any) {
         if (!path) return flowers;
         return `${STORAGE_URL}${path}`;
     };
-    console.log(getImageUrl(data.photo_stack[0]));
+    // console.log(getImageUrl(data.photo_stack[0]));
     const photos = data?.photo_stack || [];
 
     return (
