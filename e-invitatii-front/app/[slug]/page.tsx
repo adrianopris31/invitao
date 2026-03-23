@@ -108,7 +108,7 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
                     address={invitation.location_address}
                 ></EventLocation>
                 <PhotoStack data={invitation}></PhotoStack>
-                <TimeLeft targetDate={invitation.event_date}></TimeLeft>
+                <TimeLeft targetDate={invitation.event_date} clientDetails={invitation.client_details}></TimeLeft>
                 <ConfirmationForm slug={slug}></ConfirmationForm>
                 <Footer eventDate={invitation.event_date} clientNames={invitation.client_names}></Footer>
             </div>

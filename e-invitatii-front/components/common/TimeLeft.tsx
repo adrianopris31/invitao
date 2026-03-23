@@ -2,8 +2,9 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { getFormattedDate } from "@/utils/formatters";
+import { div, p } from "framer-motion/client";
 
-export default function TimeLeft({ targetDate }: { targetDate: string }) {
+export default function TimeLeft({ targetDate, clientDetails }: { targetDate: string; clientDetails: Array<any> }) {
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -105,14 +106,13 @@ export default function TimeLeft({ targetDate }: { targetDate: string }) {
                 {/* <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-gray-100">Confirmarea Prezenței</h1> */}
                 <p>Vă rugăm să confirmați prezența și numărul de persoane până la data de:</p>
                 <h1 className="font-bold text-2xl">{getFormattedDate(rsvpDeadline)}</h1>
-                <div className="flex justify-center">
-                    <p>Maria - </p>
-                    <p>0755 511 701</p>
-                </div>
-                <div className="flex justify-center">
-                    <p>Iozsi - </p>
-                    <p>0744 815 361</p>
-                </div>
+                {clientDetails.map((contact, index) => (
+                    <div key={index} className="flex justify-center gap-1">
+                        <p>{contact.name}</p>
+                        <p>-</p>
+                        <p>{contact.phone}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );

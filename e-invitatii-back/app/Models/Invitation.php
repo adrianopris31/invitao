@@ -23,11 +23,13 @@ class Invitation extends Model
         'ceremony_details',
         'location_name',
         'location_address',
-        'google_maps_iframe'
+        'google_maps_iframe',
+        'client_details'
     ];
     protected $casts = [
         'photo_stack' => 'array',
         'ceremony_details' => 'array',
         'family_details' => 'array',
+        'client_details' => 'array',
     ];
 }
