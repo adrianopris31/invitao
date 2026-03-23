@@ -87,7 +87,7 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
         invitation = failData;
     }
     return (
-        <InvitationView>
+        <InvitationView clientNames={invitation.client_names}>
             <div
                 className="min-h-screen"
                 style={{

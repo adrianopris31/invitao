@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 
 // Obligatoriu pentru onClick și state
 
-export default function InvitationContainer({ isOpened, onClick }: any) {
+export default function InvitationContainer({ isOpened, onClick, clientNames }: any) {
+    let getInitials = (names: string) =>
+        names
+            .split(" & ")
+            .map((t) => t.charAt(0))
+            .join("&");
     return (
         <div
             onClick={onClick}
@@ -70,7 +75,9 @@ export default function InvitationContainer({ isOpened, onClick }: any) {
                                 className="w-10 h-10 rounded-full bg-[#adc79c] flex items-center justify-center shadow-lg"
                                 style={{ boxShadow: "0 2px 12px rgba(201,169,110,0.4)" }}
                             >
-                                <span className="text-white text-xs font-serif font-bold">I&M</span>
+                                <span className="text-white text-xs font-serif font-bold">
+                                    {getInitials(clientNames)}
+                                </span>
                             </div>
                         </motion.div>
                     </div>

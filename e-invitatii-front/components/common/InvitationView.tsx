@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import InvitationContainer from "./InvitationContainer";
 
-export default function InvitationView({ children }: { children: React.ReactNode }) {
+export default function InvitationView({ children, clientNames }: { children: React.ReactNode; clientNames: string }) {
     const [isOpened, setIsOpened] = useState(false);
     useEffect(() => {
         if ("scrollRestoration" in history) {
@@ -14,7 +14,7 @@ export default function InvitationView({ children }: { children: React.ReactNode
     }, []);
     return (
         <>
-            <InvitationContainer isOpened={isOpened} onClick={() => setIsOpened(true)} />
+            <InvitationContainer clientNames={clientNames} isOpened={isOpened} onClick={() => setIsOpened(true)} />
 
             <div className={!isOpened ? "h-screen overflow-hidden" : ""}>{children}</div>
         </>
