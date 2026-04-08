@@ -13,7 +13,7 @@ export default function InvitationContainer({ isOpened, onClick, clientNames }: 
         <div
             onClick={onClick}
             className={`
-        fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-all duration-1000 ease-in-out
+        fixed inset-0 z-9999 flex items-center justify-center bg-white transition-all duration-1000 ease-in-out
         ${isOpened ? "opacity-0 pointer-events-none scale-150" : "opacity-100"}
       `}
         >
