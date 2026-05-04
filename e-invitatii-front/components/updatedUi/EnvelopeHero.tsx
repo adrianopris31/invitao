@@ -122,7 +122,6 @@ export default function EnvelopeHero({ data }: any) {
                     </div>
                 </motion.div>
 
-                {/* Invitation card - right side, popping out of envelope */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}

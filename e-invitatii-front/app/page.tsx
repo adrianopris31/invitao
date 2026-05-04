@@ -1,23 +1,30 @@
 import Image from "next/image";
+import Navbar from "./landing/Navbar";
+import Hero from "./landing/Hero";
+import Stats from "./landing/Stats";
+import CTA from "./landing/CTA";
+import Gallery from "./landing/Gallery";
+import HowItWorks from "./landing/HowItWorks";
+import LandingFooter from "./landing/LandingFooter";
+import Pricing from "./landing/Pricing";
+import Services from "./landing/Services";
+import Testimonials from "./landing/Testimonials";
 
 export default function Home() {
     return (
-        <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-            <main className="flex min-h-screen w-full max-w-2xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-                <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-                    <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-                        Cauti o invitatie?
-                    </h1>
-                    <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-                        Verifica <a className="font-medium text-zinc-950 dark:text-zinc-50">link-ul</a> primit sau{" "}
-                        <a href="" className="font-medium text-zinc-950 dark:text-zinc-50">
-                            contacteaza-l
-                        </a>{" "}
-                        pe cel care ti l-a trimis.
-                    </p>
-                </div>
-                <div className="flex flex-col gap-4 text-base font-medium sm:flex-row"></div>
-            </main>
+        <div className="min-h-screen bg-white">
+            <div className="max-w-2xl mx-auto">
+                <Navbar />
+                <Hero />
+                <Stats />
+                <Services />
+                <Gallery />
+                <HowItWorks />
+                <Pricing />
+                <Testimonials />
+                <CTA />
+                <LandingFooter />
+            </div>
         </div>
     );
 }
