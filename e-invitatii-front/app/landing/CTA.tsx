@@ -28,22 +28,17 @@ export default function CTA() {
                 transition={{ duration: 0.8 }}
             >
                 <Heart className="w-8 h-8 text-[#c9a96e] fill-[#c9a96e] mx-auto mb-6" />
-                <h2 className="font-serif text-3xl sm:text-4xl text-white mb-4">Ready to begin?</h2>
+                <h2 className="font-serif text-3xl sm:text-4xl text-white mb-4">Gata să începi?</h2>
                 <p className="text-[#a89070] text-sm sm:text-base max-w-xs mx-auto mb-10 leading-relaxed">
-                    Start with a free consultation. We'll bring your dream wedding stationery to life.
+                    Haide să discutăm toate detaliile!
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <button className="flex items-center justify-center gap-2 bg-[#c9a96e] text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-[#b8986a] transition-colors duration-300 shadow-xl">
-                        Book Free Consultation
+                        Discută cu noi
                         <ArrowRight className="w-4 h-4" />
                     </button>
-                    <button className="border border-[#6a5a4a] text-[#c9a96e] px-8 py-4 rounded-full text-sm font-medium hover:bg-[#4a3f35] transition-colors duration-300">
-                        See Pricing
-                    </button>
                 </div>
-
-                <p className="text-[#6a5a4a] text-xs mt-8">No commitment required · Response within 24 hours</p>
             </motion.div>
         </section>
     );

@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 const steps = [
     {
         number: "01",
-        title: "Book a Consultation",
-        desc: "Tell us about your vision, wedding style, and preferences in a free 20-minute call.",
+        title: "Trimite-ne detaliile",
+        desc: "Poze, locații, dată, program - tot ce doresti să apară pe invitație.",
     },
     {
         number: "02",
-        title: "Receive Your Design",
-        desc: "Our designers craft your custom invitation suite within 48 hours for your review.",
+        title: "Primesti invitația",
+        desc: "În maximum 48h invitația e gata, personalizată cu tot ce ai trimis.",
     },
     {
         number: "03",
-        title: "Refine & Approve",
-        desc: "We revise until you're completely in love with every detail.",
+        title: "Revizuire",
+        desc: "Revizuim impreună pentru a ne asigura ca totul este pe placul tău.",
     },
     {
         number: "04",
-        title: "Send & Celebrate",
-        desc: "Digital delivery or premium printing — your invitations are on their way.",
+        title: "Trimite link-ul",
+        desc: "Distribui link-ul invitaților.",
     },
 ];
 
@@ -34,8 +34,8 @@ export default function HowItWorks() {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-14"
             >
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">The Process</p>
-                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">How It Works</h2>
+                <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">Simplu și rapid</p>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">Cum funcționează</h2>
             </motion.div>
 
             <div className="space-y-0 max-w-sm mx-auto relative">

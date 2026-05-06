@@ -1,61 +1,60 @@
 "use client";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { forwardRef } from "react";
 
 const plans = [
     {
         name: "Digital",
-        price: "$149",
-        period: "one-time",
-        tagline: "Perfect for the modern couple",
+        price: "150 RON",
+        period: "o singură dată",
+        tagline: "Esențial pentru cuplul modern",
         highlight: false,
         features: [
-            "1 custom digital design",
-            "Unlimited sends via link",
-            "RSVP tracking dashboard",
-            "2 revision rounds",
-            "48-hour delivery",
-            "Guest list management",
+            "1 invitație digitală personalizată",
+            "Trimitere nelimitată via link/WhatsApp",
+            "Sistem de confirmare RSVP online",
+            "Dashboard gestiune invitați",
+            "2 runde de modificări incluse",
+            "Livrare rapidă în 48h",
         ],
     },
     {
         name: "Classic",
-        price: "$349",
-        period: "starting",
-        tagline: "Our most popular package",
+        price: "300 RON",
+        period: "pachet popular",
+        tagline: "Tot ce ai nevoie pentru amintiri",
         highlight: true,
         features: [
-            "Everything in Digital",
-            "50 printed invitations",
-            "Premium paper stock",
-            "Envelope addressing",
-            "Save-the-date card",
-            "3 revision rounds",
-            "Priority support",
+            "Tot ce include pachetul Digital",
+            "Funcție încărcare poze (Upload)",
+            "Cod QR unic pentru scanare",
+            "Spațiu de stocare dedicat poze",
+            "Design premium adaptat tematicii",
+            "Suport prioritar pe WhatsApp",
         ],
     },
     {
         name: "Luxury",
-        price: "$849",
-        period: "starting",
-        tagline: "The complete experience",
+        price: "600 RON",
+        period: "experiență completă",
+        tagline: "Amintiri păstrate pe viață",
         highlight: false,
         features: [
-            "Everything in Classic",
-            "100 printed invitations",
-            "Full stationery suite",
-            "Hand calligraphy",
-            "Wedding website",
-            "Unlimited revisions",
-            "Dedicated designer",
-            "Day-of timeline cards",
+            "Tot ce include pachetul Classic",
+            "Găzduire pe viață (Invitație + Poze)",
+            "Arhivă digitală permanentă",
+            "Revizuiri nelimitate până la eveniment",
+            "Designer dedicat pentru concept",
+            "Timeline eveniment interactiv",
+            "Suport VIP 24/7",
         ],
     },
 ];
 
-export default function Pricing() {
+export default function Pricing({ innerRef }: { innerRef?: React.Ref<HTMLElement> }) {
     return (
-        <section id="pricing" className="py-20 px-4">
+        <section id="pricing" className="py-20 px-4" ref={innerRef}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -140,15 +139,15 @@ export default function Pricing() {
                                     : "bg-[#f5ece0] text-[#3d3429] hover:bg-[#ede0cc] border border-[#d4c4a8]"
                             }`}
                         >
-                            Get Started with {plan.name}
+                            Vreau {plan.name}
                         </button>
                     </motion.div>
                 ))}
             </div>
 
             <p className="text-center text-xs text-[#a09382] mt-8">
-                Need something custom? <span className="underline cursor-pointer text-[#c9a96e]">Contact us</span> for a
-                personalized quote.
+                Ai nevoie de ceva personalizat 100%?{" "}
+                <span className="underline cursor-pointer text-[#c9a96e]">Contacteăza-ne</span> si vom discuta.
             </p>
         </section>
     );

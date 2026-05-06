@@ -29,24 +29,17 @@ export default function Hero() {
             />
 
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
-                <p className="text-[11px] uppercase tracking-[0.4em] text-[#b8a080] mb-6">Bespoke Wedding Stationery</p>
+                <p className="text-[11px] uppercase tracking-[0.4em] text-[#b8a080] mb-6">
+                    Perfecte pentru orice eveniment
+                </p>
                 <h1 className="font-serif text-5xl sm:text-6xl text-[#3d3429] leading-tight mb-6">
-                    Invitations as
+                    Invitații
                     <br />
-                    <span className="italic text-[#c9a96e]">beautiful</span> as your love
+                    <span className="italic text-[#c9a96e]"> deosebite</span> pentru voi
                 </h1>
                 <p className="text-[#7a6e63] text-base sm:text-lg max-w-sm mx-auto mb-10 leading-relaxed">
-                    Handcrafted digital and printed wedding invitations designed to set the perfect tone for your
-                    special day.
+                    Digitale si personalizabile ca să se potrivească cu ziua ta specială.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button className="bg-[#3d3429] text-white px-8 py-3.5 rounded-full text-sm font-medium hover:bg-[#c9a96e] transition-colors duration-300 shadow-lg">
-                        See Our Packages
-                    </button>
-                    <button className="border border-[#d4c4a8] text-[#3d3429] px-8 py-3.5 rounded-full text-sm font-medium hover:bg-[#f5ece0] transition-colors duration-300">
-                        View Samples
-                    </button>
-                </div>
             </motion.div>
 
             <motion.div

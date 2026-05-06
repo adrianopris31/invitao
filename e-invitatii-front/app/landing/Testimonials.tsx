@@ -4,22 +4,22 @@ import { Star } from "lucide-react";
 
 const testimonials = [
     {
-        name: "Sarah & Michael",
-        date: "Married April 2025",
-        quote: "Our invitations were even more beautiful than we imagined. Every guest commented on how elegant they were. Worth every penny!",
-        avatar: "SM",
+        name: "Elena & Andrei",
+        date: "Căsătoriți în Aprilie 2025",
+        quote: "Invitațiile noastre au fost chiar mai frumoase decât ne-am imaginat. Fiecare invitat a remarcat cât de elegante au fost. A meritat fiecare bănuț!",
+        avatar: "EA",
     },
     {
-        name: "Priya & David",
-        date: "Married October 2024",
-        quote: "The team was so patient with our many revisions. The final result perfectly captured our story. Highly recommend the Luxury package!",
-        avatar: "PD",
+        name: "Andreea & Ionuț",
+        date: "Căsătoriți în Octombrie 2024",
+        quote: "Echipa a avut atât de multă răbdare cu numeroasele noastre modificări. Rezultatul final a surprins perfect povestea noastră. Recomandăm cu drag pachetul Luxury!",
+        avatar: "AI",
     },
     {
-        name: "Claire & Tom",
-        date: "Married June 2025",
-        quote: "We went with digital invitations and the RSVP tracking made our life so much easier. Modern, beautiful, and stress-free.",
-        avatar: "CT",
+        name: "Maria & Ștefan",
+        date: "Căsătoriți în Iunie 2025",
+        quote: "Am ales invitațiile digitale, iar sistemul de confirmări (RSVP) ne-a ușurat enorm viața. Modern, frumos și fără stres.",
+        avatar: "MȘ",
     },
 ];
 

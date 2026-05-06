@@ -5,33 +5,33 @@ import { Smartphone, Printer, Palette, Mail, PenLine, Gift } from "lucide-react"
 const services = [
     {
         icon: Smartphone,
-        title: "Digital Invitations",
-        desc: "Stunning animated e-invites delivered instantly via link. Easy RSVP tracking included.",
+        title: "Invitații digitale",
+        desc: "E-invitații cu animații uimitoare, livrate instant printr-un link.",
     },
     {
         icon: Printer,
-        title: "Printed Cards",
-        desc: "Premium quality printed invitations on luxury paper stock, shipped to your door.",
+        title: "Confirmare prezență",
+        desc: "Invitații pot confirma prezența direct din invitație iar organizatorii vor primi o lista cu cei care au confirmat.",
     },
     {
         icon: Palette,
-        title: "Custom Design",
-        desc: "Work 1-on-1 with our designers to create a completely unique, one-of-a-kind suite.",
+        title: "Design custom",
+        desc: "Vrei ca invitația ta să fie cât mai unică? Spune-ne cum, iar noi o realizăm!",
     },
     {
         icon: Mail,
-        title: "Full Suite",
-        desc: "Save-the-dates, invitations, RSVP cards, menus, and thank-you notes — all matching.",
+        title: "Tot tacâmul",
+        desc: "Numărătoare inversă, confirmări, locație live, invitații prezentabile.",
     },
     {
         icon: PenLine,
-        title: "Calligraphy Add-on",
-        desc: "Hand-lettered envelope addressing and name calligraphy for a truly personal touch.",
+        title: "Capturează momentul",
+        desc: "Servicii pentru incărcarea pozelor direct pe cloud, prin scanarea unui cod QR.",
     },
     {
         icon: Gift,
-        title: "Wedding Website",
-        desc: "A matching wedding website to share your story, registry, and collect RSVPs online.",
+        title: "Al tău pe veci",
+        desc: "Posibilitatea de a păstra website-ul ca amintire pe viată.",
     },
 ];
 
@@ -45,8 +45,8 @@ export default function Services() {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-14"
             >
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">What We Offer</p>
-                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">Our Services</h2>
+                <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">De ce noi?</p>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">Serviciile noastre</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
