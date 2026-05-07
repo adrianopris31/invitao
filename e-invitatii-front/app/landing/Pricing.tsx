@@ -8,46 +8,46 @@ const plans = [
         name: "Digital",
         price: "150 RON",
         period: "o singură dată",
-        tagline: "Esențial pentru cuplul modern",
+        tagline: "Tot ce vă trebuie, simplu și elegant",
         highlight: false,
         features: [
-            "1 invitație digitală personalizată",
-            "Trimitere nelimitată via link/WhatsApp",
-            "Sistem de confirmare RSVP online",
-            "Dashboard gestiune invitați",
-            "2 runde de modificări incluse",
-            "Livrare rapidă în 48h",
+            "O invitație digitală unică, a voastră",
+            "Trimite oricui, oricând — link sau WhatsApp",
+            "RSVP online — fără telefoane, fără haos",
+            "Toate confirmările, într-un singur loc",
+            "2 runde de ajustări incluse",
+            "Gata în 48 de ore",
         ],
     },
     {
         name: "Classic",
         price: "300 RON",
         period: "pachet popular",
-        tagline: "Tot ce ai nevoie pentru amintiri",
+        tagline: "Invitație + amintiri, totul la un loc",
         highlight: true,
         features: [
-            "Tot ce include pachetul Digital",
-            "Funcție încărcare poze (Upload)",
-            "Cod QR unic pentru scanare",
-            "Spațiu de stocare dedicat poze",
-            "Design premium adaptat tematicii",
-            "Suport prioritar pe WhatsApp",
+            "Tot ce include Digital, plus:",
+            "Album foto partajat cu invitații",
+            "Cod QR elegant pentru acces rapid",
+            "Stocare dedicată pentru amintirile voastre",
+            "Design personalizat pe tema nunții",
+            "Suport rapid pe WhatsApp",
         ],
     },
     {
         name: "Luxury",
         price: "600 RON",
         period: "experiență completă",
-        tagline: "Amintiri păstrate pe viață",
+        tagline: "O experiență completă, pentru totdeauna",
         highlight: false,
         features: [
-            "Tot ce include pachetul Classic",
-            "Găzduire pe viață (Invitație + Poze)",
-            "Arhivă digitală permanentă",
-            "Revizuiri nelimitate până la eveniment",
-            "Designer dedicat pentru concept",
-            "Timeline eveniment interactiv",
-            "Suport VIP 24/7",
+            "Tot ce include Classic, plus:",
+            "Invitația și pozele, găzduite pe viață",
+            "Arhivă digitală — amintiri fără expirare",
+            "Modificări nelimitate până în ziua cea mare",
+            "Designer dedicat, exclusiv pentru voi",
+            "Timeline interactiv al evenimentului",
+            "Suport VIP, oricând aveți nevoie",
         ],
     },
 ];
@@ -62,10 +62,10 @@ export default function Pricing({ innerRef }: { innerRef?: React.Ref<HTMLElement
                 transition={{ duration: 0.7 }}
                 className="text-center mb-14"
             >
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">Transparent Pricing</p>
-                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">Choose Your Package</h2>
+                <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">Prețuri clare, fără surprize</p>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">Alege experiența potrivită pentru voi</h2>
                 <p className="text-sm text-[#a09382] mt-3 max-w-xs mx-auto">
-                    All packages include a free consultation and design matching your vision
+                    Fiecare pachet include o consultație gratuită.
                 </p>
             </motion.div>
 
@@ -84,7 +84,7 @@ export default function Pricing({ innerRef }: { innerRef?: React.Ref<HTMLElement
                         {plan.highlight && (
                             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                                 <span className="bg-[#c9a96e] text-white text-[10px] uppercase tracking-[0.2em] px-4 py-1.5 rounded-full font-medium">
-                                    Most Popular
+                                    Cel mai ales
                                 </span>
                             </div>
                         )}
@@ -146,8 +146,8 @@ export default function Pricing({ innerRef }: { innerRef?: React.Ref<HTMLElement
             </div>
 
             <p className="text-center text-xs text-[#a09382] mt-8">
-                Ai nevoie de ceva personalizat 100%?{" "}
-                <span className="underline cursor-pointer text-[#c9a96e]">Contacteăza-ne</span> si vom discuta.
+                Ai nevoie de ceva cu totul aparte?{" "}
+                <span className="underline cursor-pointer text-[#c9a96e]">Contactează-ne</span> — facem posibil ce pare imposibil.
             </p>
         </section>
     );
