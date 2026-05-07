@@ -23,16 +23,16 @@ export default function Footer({ eventDate, clientNames }: any) {
             >
                 {/* Decorative line */}
                 <div className="flex items-center justify-center gap-4">
-                    <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#7a8c74]" />
-                    <Heart className="w-4 h-4 text-[#7a8c74] fill-[#7a8c74]" strokeWidth={1} />
-                    <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#7a8c74]" />
+                    <div className="h-[1px] w-12 bg-linear-to-r from-transparent to-(--theme-primary)" />
+                    <Heart className="w-4 h-4 text-(--theme-primary) fill-(--theme-primary)" strokeWidth={1} />
+                    <div className="h-[1px] w-12 bg-linear-to-l from-transparent to-(--theme-primary)" />
                 </div>
 
                 <div>
                     <p className="font-serif text-2xl sm:text-3xl text-[#3d3429] mb-3">
                         Abia așteptăm să ne fiți alături!{" "}
                     </p>
-                    <p className="text-sm text-[#7a8c74] leading-relaxed max-w-xs mx-auto">
+                    <p className="text-sm text-(--theme-primary) leading-relaxed max-w-xs mx-auto">
                         Prezența voastră este cel mai frumos cadou.{" "}
                     </p>
                 </div>
@@ -43,12 +43,12 @@ export default function Footer({ eventDate, clientNames }: any) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
                 >
-                    <p className="font-serif text-lg text-[#7a8c74] italic">Cu tot dragul,</p>
+                    <p className="font-serif text-lg text-(--theme-primary) italic">Cu tot dragul,</p>
                     <p className="font-serif text-xl text-[#3d3429] mt-1">{clientNames}</p>
                 </motion.div>
 
                 <div className="pt-4 md:pt-8">
-                    <p className="text-[12px] uppercase tracking-[0.3em] text-[#7a8c74]">
+                    <p className="text-[12px] uppercase tracking-[0.3em] text-(--theme-primary)">
                         {getFormattedDate(eventDate)}
                     </p>
                 </div>

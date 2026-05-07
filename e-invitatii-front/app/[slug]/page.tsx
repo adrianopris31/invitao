@@ -9,17 +9,6 @@ import { notFound } from "next/navigation";
 import EnvelopeHero from "@/components/updatedUi/EnvelopeHero";
 import Footer from "@/components/updatedUi/Footer";
 import ConfirmationForm from "@/components/common/ConfirmationForm";
-const mockData = {
-    names: "Joszi & Maria",
-    date: "27.09.2026",
-    primaryColor: "#7a9072",
-    bgImage: "/images/hortensii.png",
-    font: "Playfair Display",
-    envelopeColor: "#cbd5c0",
-    envelop_url: "/images/closedEnvelopeNoBg.png",
-    card_left_bg: "/images/closedInvitation.png",
-    card_right_bg: "images",
-};
 
 const failData = {
     client_names: "Iozsi & Maria",
@@ -91,11 +80,11 @@ export default async function Invitation({ params }: { params: Promise<{ slug: s
             <div
                 className="min-h-screen"
                 style={{
-                    background: "linear-gradient(180deg, #f4f7f1 0%, #edf2e8 40%, #f4f7f1 70%, #e6eee0 100%)",
+                    background: "linear-gradient(180deg, var(--theme-bg-from) 0%, var(--theme-bg-mid) 40%, var(--theme-bg-from) 70%, var(--theme-bg-to) 100%)",
                 }}
             >
                 <h1
-                    style={{ color: mockData.primaryColor, fontFamily: mockData.font }}
+                    style={{ color: "var(--theme-primary)" }}
                     className="text-center p-3 border-b-2 border-gray-50"
                 >
                     {invitation.client_names}

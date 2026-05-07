@@ -60,11 +60,9 @@ export default function ConfirmationForm({ slug }: any) {
         try {
             const response = await fetch(`${API_URL}${url}`, {
                 method: method,
-
                 headers: {
                     "Content-Type": "application/json",
                 },
-
                 body: JSON.stringify({
                     name: formData.name,
                     count: formData.guests,
@@ -110,7 +108,7 @@ export default function ConfirmationForm({ slug }: any) {
                                     Puteți confirma prezența apăsând butonul de mai jos:
                                 </p>
                                 <button
-                                    className="px-4 py-2 bg-[#cbd8c2] hover:bg-[#b8c9ad] text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-md"
+                                    className="px-4 py-2 bg-(--theme-primary-light) hover:bg-(--theme-primary-hover) text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-md"
                                     onClick={() => setStep("form")}
                                 >
                                     Confirmă Prezența
@@ -151,7 +149,7 @@ export default function ConfirmationForm({ slug }: any) {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#cbd8c2] focus:border-transparent outline-none transition-all text-[#7a8c74] bg-white"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-(--theme-primary-light) focus:border-transparent outline-none transition-all text-(--theme-primary) bg-white"
                                 />
                             </motion.div>
 
@@ -167,7 +165,7 @@ export default function ConfirmationForm({ slug }: any) {
                                     value={formData.guests}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#cbd8c2] focus:border-transparent outline-none transition-all text-[#7a8c74] bg-white"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-(--theme-primary-light) focus:border-transparent outline-none transition-all text-(--theme-primary) bg-white"
                                 />
                             </motion.div>
 
@@ -182,14 +180,14 @@ export default function ConfirmationForm({ slug }: any) {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#cbd8c2] focus:border-transparent outline-none transition-all text-[#7a8c74] bg-white"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-(--theme-primary-light) focus:border-transparent outline-none transition-all text-(--theme-primary) bg-white"
                                 />
                             </motion.div>
 
                             <motion.div variants={itemVariants} className="flex flex-col gap-3 mt-2 items-center">
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 bg-[#cbd8c2] hover:bg-[#cbd8c2] text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-md"
+                                    className="px-4 py-2 bg-(--theme-primary-light) hover:bg-(--theme-primary-hover) text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-md"
                                 >
                                     Trimite Confirmarea
                                 </button>
@@ -208,7 +206,6 @@ export default function ConfirmationForm({ slug }: any) {
                         </motion.form>
                     )}
 
-                    {/* --- PASUL 3: SUCCES --- */}
                     {step === "success" && (
                         <motion.div
                             key="button-success"
@@ -224,13 +221,13 @@ export default function ConfirmationForm({ slug }: any) {
                                     className="text-5xl mb-4"
                                 >
                                     🎉
-                                </motion.div>{" "}
+                                </motion.div>
                                 <h3 className="text-2xl font-bold text-gray-600 mb-2 font-serif">Mulțumim!</h3>
-                                <p className="text-[#7a8c74] italic font-eb-garamond">Te-am trecut pe listă!</p>
-                                <p className="text-[#7a8c74] italic font-eb-garamond">
+                                <p className="text-(--theme-primary) italic font-eb-garamond">Te-am trecut pe listă!</p>
+                                <p className="text-(--theme-primary) italic font-eb-garamond">
                                     Ai greșit ceva?{" "}
                                     <button
-                                        className="underline decoration-dashed underline-offset-4 hover:text-[#5f6d5a] transition-colors cursor-pointer"
+                                        className="underline decoration-dashed underline-offset-4 hover:text-(--theme-primary-dark) transition-colors cursor-pointer"
                                         onClick={() => {
                                             localStorage.removeItem(`confirmed_${slug}`);
                                             setIsUpdate(true);

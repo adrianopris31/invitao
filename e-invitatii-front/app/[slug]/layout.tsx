@@ -1,25 +1,54 @@
-import Footer from "@/components/updatedUi/Footer";
-export default function InvitationLayout({ children }: { children: React.ReactNode }) {
+import React from "react";
+
+// Theme defaults — will be replaced with per-invitation values from DB
+const theme = {
+    primary: "#7a8c74",
+    primaryLight: "#cbd8c2",
+    primaryLighter: "#dee7d8",
+    primaryHover: "#b8c9ad",
+    primaryDark: "#5f6d5a",
+    bgFrom: "#f4f7f1",
+    bgMid: "#edf2e8",
+    bgTo: "#e6eee0",
+};
+/*const theme = {
+      primary: "#9c6b7a",          // dusty rose — text accents, icons, lines                                                                                                                                                                                         
+      primaryLight: "#d4a5b5",     // blush — buttons, envelope body                                                                                                                                                                                                  
+      primaryLighter: "#ead4dc",   // pale blush — gradient starts, folds                                                                                                                                                                                             
+      primaryHover: "#b8879a",     // deeper rose — button hover                                                                                                                                                                                                      
+      primaryDark: "#7a4f5c",      // dark rose — hover text                                                                                                                                                                                                          
+      bgFrom: "#fdf5f7",           // barely-there blush background                                                                                                                                                                                                   
+      bgMid: "#f5e6eb",                                                                                                                                                                                                                                               
+      bgTo: "#ede0e4",                                                                                                                                                                                                                                                
+  };
+   const theme = {                                                                                                                                                                                                                                                     
+      primary: "#c9a96e",      // gold — text accents, icons, lines                                                                                                                                                                                                   
+      primaryLight: "#d4c4a8", // light tan — buttons, envelope body                                                                                                                                                                                                  
+      primaryLighter: "#ece4d8", // pale parchment — gradient starts, folds                                                                                                                                                                                           
+      primaryHover: "#b8986a", // deeper gold — button hover                                                                                                                                                                                                          
+      primaryDark: "#a09382",  // muted brown — hover text                                                                                                                                                                                                            
+      bgFrom: "#faf5ed",       // warm ivory background                                                                                                                                                                                                               
+      bgMid: "#f0e8da",
+      bgTo: "#ece4d8",                                                                                                                                                                                                                                                
+  };      */
+
+export default function SlugLayout({ children }: { children: React.ReactNode }) {
     return (
-        <section
-            className="invitation-container min-h-screen"
-            style={{
-                background: "linear-gradient(180deg, #f4f7f1 0%, #edf2e8 40%, #f4f7f1 70%, #e6eee0 100%)",
-            }}
+        <div
+            style={
+                {
+                    "--theme-primary": theme.primary,
+                    "--theme-primary-light": theme.primaryLight,
+                    "--theme-primary-lighter": theme.primaryLighter,
+                    "--theme-primary-hover": theme.primaryHover,
+                    "--theme-primary-dark": theme.primaryDark,
+                    "--theme-bg-from": theme.bgFrom,
+                    "--theme-bg-mid": theme.bgMid,
+                    "--theme-bg-to": theme.bgTo,
+                } as React.CSSProperties
+            }
         >
             {children}
-
-            {/* <footer className="text-center opacity-100 max-w-2xl mx-auto">
-                <div className="relative">
-                    <img src={"/images/eventFooter.png"} alt="Details" className="w-full h-auto" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="flex flex-col text-white text-2xl md:text-4xl font-eb-garamond w-fit mt-2">
-                            <h1 className="font-great-vibes">Te asteptam cu drag</h1>
-                            <h1 className="font-eb-garamond text-l">30.05.2026</h1>
-                        </div>
-                    </div>
-                </div>
-            </footer> */}
-        </section>
+        </div>
     );
 }
