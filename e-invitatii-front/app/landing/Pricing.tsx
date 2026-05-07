@@ -132,22 +132,33 @@ export default function Pricing({ innerRef }: { innerRef?: React.Ref<HTMLElement
                             ))}
                         </div>
 
-                        <button
-                            className={`w-full py-3.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                        <a
+                            href="https://ig.me/m/adiopris31"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`w-full py-3.5 rounded-full text-sm font-medium transition-all duration-300 flex items-center justify-center ${
                                 plan.highlight
                                     ? "bg-[#c9a96e] text-white hover:bg-[#b8986a] shadow-lg"
                                     : "bg-[#f5ece0] text-[#3d3429] hover:bg-[#ede0cc] border border-[#d4c4a8]"
                             }`}
                         >
                             Vreau {plan.name}
-                        </button>
+                        </a>
                     </motion.div>
                 ))}
             </div>
 
             <p className="text-center text-xs text-[#a09382] mt-8">
                 Ai nevoie de ceva cu totul aparte?{" "}
-                <span className="underline cursor-pointer text-[#c9a96e]">Contactează-ne</span> — facem posibil ce pare imposibil.
+                <a
+                    href="https://ig.me/m/adiopris31"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-[#c9a96e] hover:text-[#b8986a] transition-colors"
+                >
+                    Contactează-ne
+                </a>{" "}
+                — facem posibil ce pare imposibil.
             </p>
         </section>
     );
