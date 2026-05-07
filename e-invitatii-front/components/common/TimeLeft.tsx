@@ -1,8 +1,7 @@
-"use client"; // Obligatoriu pentru că folosim state și useEffect
+"use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { getFormattedDate } from "@/utils/formatters";
-import { div, p } from "framer-motion/client";
 
 export default function TimeLeft({ targetDate, clientDetails }: { targetDate: string; clientDetails: Array<any> }) {
     const [timeLeft, setTimeLeft] = useState({
@@ -46,7 +45,6 @@ export default function TimeLeft({ targetDate, clientDetails }: { targetDate: st
     }
 
     const eventDate = new Date(targetDate);
-
     const rsvpDeadline = new Date(eventDate);
     rsvpDeadline.setDate(rsvpDeadline.getDate() - 25);
 
@@ -71,12 +69,11 @@ export default function TimeLeft({ targetDate, clientDetails }: { targetDate: st
                 className="text-center mb-14 mt-15"
             >
                 <div className="inline-block relative">
-                    {/* Banner shape */}
                     <div className="relative px-10 py-4">
                         <div
                             className="absolute inset-0 rounded-md"
                             style={{
-                                background: "linear-gradient(135deg, #f4f7f1 0%, #e8ede2 150%, #f4f7f1 100%)",
+                                background: "linear-gradient(135deg, var(--theme-bg-from) 0%, var(--theme-bg-mid) 150%, var(--theme-bg-from) 100%)",
                                 boxShadow: "0 2px 16px rgba(201,169,110,0.15)",
                             }}
                         />
@@ -85,7 +82,7 @@ export default function TimeLeft({ targetDate, clientDetails }: { targetDate: st
                             className="absolute -left-4 top-1/2 -translate-y-1/2 w-6 h-full"
                             style={{
                                 clipPath: "polygon(100% 0%, 0% 50%, 100% 100%)",
-                                background: "linear-gradient(180deg, #dee7d8, #cbd8c2)",
+                                background: "linear-gradient(180deg, var(--theme-primary-lighter), var(--theme-primary-light))",
                             }}
                         />
                         {/* Right ribbon tail */}
@@ -93,7 +90,7 @@ export default function TimeLeft({ targetDate, clientDetails }: { targetDate: st
                             className="absolute -right-4 top-1/2 -translate-y-1/2 w-6 h-full"
                             style={{
                                 clipPath: "polygon(0% 0%, 100% 50%, 0% 100%)",
-                                background: "linear-gradient(180deg, #dee7d8, #cbd8c2)",
+                                background: "linear-gradient(180deg, var(--theme-primary-lighter), var(--theme-primary-light))",
                             }}
                         />
                         <h2 className="relative font-serif text-2xl sm:text-3xl text-[#3d3429] tracking-wide">
@@ -103,7 +100,6 @@ export default function TimeLeft({ targetDate, clientDetails }: { targetDate: st
                 </div>
             </motion.div>
             <div className="middle-text text-gray-600 px-4 md:px-8 py-3 text-center mt-5 font-eb-garamond text-xl flex flex-col gap-2">
-                {/* <h1 className="text-4xl px-4 font-eb-garamond mb-5 border-gray-100">Confirmarea Prezenței</h1> */}
                 <p>Vă rugăm să confirmați prezența și numărul de persoane până la data de:</p>
                 <h1 className="font-bold text-2xl">{getFormattedDate(rsvpDeadline)}</h1>
                 {clientDetails.map((contact, index) => (

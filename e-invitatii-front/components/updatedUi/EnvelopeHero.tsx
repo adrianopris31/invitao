@@ -37,13 +37,13 @@ export default function EnvelopeHero({ data }: any) {
                     className="absolute bottom-4 md:-left-6 sm:left-0 z-10"
                 >
                     <div
-                        className="bg-white rounded-lg px-5 py-4 shadow-md border border-[#d8e2d1]"
+                        className="bg-white rounded-lg px-5 py-4 shadow-md border border-(--theme-primary-lighter)"
                         style={{
                             transform: "rotate(-6deg)",
                             boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
                         }}
                     >
-                        <p className="text-[11px] uppercase tracking-[0.25em] text-[#7a8c74] mb-1">Impreună, cu drag</p>
+                        <p className="text-[11px] uppercase tracking-[0.25em] text-(--theme-primary) mb-1">Impreună, cu drag</p>
                         <p className="font-serif text-lg text-[#3d3429] leading-tight">{data.client_names}</p>
                         <div className="w-8 h-[1px] bg-[#c9a96e] mt-2" />
                     </div>
@@ -59,48 +59,54 @@ export default function EnvelopeHero({ data }: any) {
                         <div
                             className="absolute inset-0 rounded-lg"
                             style={{
-                                background: "linear-gradient(180deg, #d8e2d1 0%, #c5d1bd 100%)",
+                                background: "linear-gradient(180deg, var(--theme-primary-lighter) 0%, var(--theme-primary-light) 100%)",
                                 boxShadow: "0 8px 32px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06)",
                             }}
                         />
-
-                        {/* Envelope flap (open) */}
 
                         {/* Open flap visible */}
                         <div
                             className="absolute -top-12 left-0 right-0 h-20"
                             style={{
                                 clipPath: "polygon(0% 100%, 50% 20%, 100% 100%)",
-                                background: "linear-gradient(180deg, #d8e2d1 0%, #c5d1bd 100%)",
+                                background: "linear-gradient(180deg, var(--theme-primary-lighter) 0%, var(--theme-primary-light) 100%)",
                             }}
                         />
 
                         {/* Envelope front fold lines */}
                         <div className="absolute inset-0 rounded-lg overflow-hidden">
-                            {/* Bottom triangle fold - Umbra cea mai de jos */}
+                            {/* Bottom fold — slightly darker for depth */}
                             <div
                                 className="absolute inset-0"
                                 style={{
                                     clipPath: "polygon(0% 30%, 50% 65%, 100% 30%, 100% 100%, 0% 100%)",
-                                    background: "linear-gradient(180deg, #d8e2d1 0%, #c5d1bd 100%)",
+                                    background: "linear-gradient(180deg, var(--theme-primary-light) 0%, color-mix(in srgb, var(--theme-primary-light) 75%, black) 100%)",
                                 }}
                             />
-                            {/* Left fold */}
+                            {/* Left fold — lighter, catches light */}
                             <div
                                 className="absolute inset-0"
                                 style={{
                                     clipPath: "polygon(0% 0%, 50% 65%, 0% 100%)",
-                                    background: "linear-gradient(135deg, #e4ebdf 0%, #d1dcc9 100%)",
+                                    background: "linear-gradient(135deg, color-mix(in srgb, var(--theme-primary-lighter) 60%, white) 0%, var(--theme-primary-lighter) 100%)",
                                 }}
                             />
-                            {/* Right fold */}
+                            {/* Right fold — darker, in shadow */}
                             <div
                                 className="absolute inset-0"
                                 style={{
                                     clipPath: "polygon(100% 0%, 50% 65%, 100% 100%)",
-                                    background: "linear-gradient(225deg, #dee7d8 0%, #cbd8c2 100%)",
+                                    background: "linear-gradient(225deg, color-mix(in srgb, var(--theme-primary-light) 80%, black) 0%, color-mix(in srgb, var(--theme-primary) 60%, var(--theme-primary-light)) 100%)",
                                 }}
                             />
+
+                            {/* Fold crease lines */}
+                            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: "visible" }}>
+                                <line x1="0%" y1="0%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.18)" strokeWidth="0.8" />
+                                <line x1="100%" y1="0%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.12)" strokeWidth="0.8" />
+                                <line x1="0%" y1="30%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.14)" strokeWidth="0.8" />
+                                <line x1="100%" y1="30%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.1)" strokeWidth="0.8" />
+                            </svg>
                         </div>
 
                         {/* Wax seal */}
@@ -111,7 +117,7 @@ export default function EnvelopeHero({ data }: any) {
                             className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30"
                         >
                             <div
-                                className="w-10 h-10 rounded-full bg-[#7a8c74] flex items-center justify-center shadow-lg"
+                                className="w-10 h-10 rounded-full bg-(--theme-primary) flex items-center justify-center shadow-lg"
                                 style={{ boxShadow: "0 2px 12px rgba(201,169,110,0.4)" }}
                             >
                                 <span className="text-white text-xs font-serif font-bold">
@@ -129,23 +135,23 @@ export default function EnvelopeHero({ data }: any) {
                     className="absolute -top-2 right-1/6 sm:right-2 z-30"
                 >
                     <div
-                        className="w-56 sm:w-60 bg-white rounded-xl p-6 border border-[#d8e2d1]"
+                        className="w-56 sm:w-60 bg-white rounded-xl p-6 border border-(--theme-primary-lighter)"
                         style={{
                             transform: "rotate(4deg)",
                             boxShadow: "0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06)",
                         }}
                     >
                         <div className="text-center">
-                            <div className="w-6 h-[1px] bg-[#7a8c74] mx-auto mb-3" />
-                            <p className="text-[10px] uppercase tracking-[0.3em] text-[#7a8c74] mb-2">
+                            <div className="w-6 h-[1px] bg-(--theme-primary) mx-auto mb-3" />
+                            <p className="text-[10px] uppercase tracking-[0.3em] text-(--theme-primary) mb-2">
                                 Vă invităm cu drag{" "}
                             </p>
                             <h2 className="font-serif text-2xl text-[#3d3429] leading-tight mb-1">Căsătoria</h2>
                             <p className="font-serif text-lg text-[#3d3429] italic">lui</p>
                             <p className="font-serif text-xl text-[#3d3429] mt-1 mb-3">{data?.client_names}</p>
-                            <div className="w-6 h-[1px] bg-[#7a8c74] mx-auto mb-3" />
-                            <p className="text-xs text-[#7a8c74]">{getFormattedDate(data.event_date)}</p>
-                            <p className="text-xs text-[#7a8c74] mt-0.5">{data.location_name}</p>
+                            <div className="w-6 h-[1px] bg-(--theme-primary) mx-auto mb-3" />
+                            <p className="text-xs text-(--theme-primary)">{getFormattedDate(data.event_date)}</p>
+                            <p className="text-xs text-(--theme-primary) mt-0.5">{data.location_name}</p>
                         </div>
                     </div>
                 </motion.div>

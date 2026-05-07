@@ -22,12 +22,11 @@ export default function EventLocation({ locationName, address }: LocationProps) 
                 className="text-center mb-14"
             >
                 <div className="inline-block relative">
-                    {/* Banner shape */}
                     <div className="relative px-10 py-4">
                         <div
                             className="absolute inset-0 rounded-md"
                             style={{
-                                background: "linear-gradient(135deg, #f4f7f1 0%, #e8ede2 150%, #f4f7f1 100%)",
+                                background: "linear-gradient(135deg, var(--theme-bg-from) 0%, var(--theme-bg-mid) 150%, var(--theme-bg-from) 100%)",
                                 boxShadow: "0 2px 16px rgba(201,169,110,0.15)",
                             }}
                         />
@@ -36,7 +35,7 @@ export default function EventLocation({ locationName, address }: LocationProps) 
                             className="absolute -left-4 top-1/2 -translate-y-1/2 w-6 h-full"
                             style={{
                                 clipPath: "polygon(100% 0%, 0% 50%, 100% 100%)",
-                                background: "linear-gradient(180deg, #dee7d8, #cbd8c2)",
+                                background: "linear-gradient(180deg, var(--theme-primary-lighter), var(--theme-primary-light))",
                             }}
                         />
                         {/* Right ribbon tail */}
@@ -44,7 +43,7 @@ export default function EventLocation({ locationName, address }: LocationProps) 
                             className="absolute -right-4 top-1/2 -translate-y-1/2 w-6 h-full"
                             style={{
                                 clipPath: "polygon(0% 0%, 100% 50%, 0% 100%)",
-                                background: "linear-gradient(180deg, #dee7d8, #cbd8c2)",
+                                background: "linear-gradient(180deg, var(--theme-primary-lighter), var(--theme-primary-light))",
                             }}
                         />
                         <h2 className="relative font-serif text-2xl sm:text-3xl text-[#3d3429] tracking-wide">
