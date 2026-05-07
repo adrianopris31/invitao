@@ -5,13 +5,13 @@ import { Star } from "lucide-react";
 const testimonials = [
     {
         name: "Elena & Andrei",
-        date: "Căsătoriți în Aprilie 2025",
+        date: "Căsătoriți în Aprilie 2026",
         quote: "Invitațiile noastre au fost chiar mai frumoase decât ne-am imaginat. Fiecare invitat a remarcat cât de elegante au fost. A meritat fiecare bănuț!",
         avatar: "EA",
     },
     {
         name: "Andreea & Ionuț",
-        date: "Căsătoriți în Octombrie 2024",
+        date: "Căsătoriți în Octombrie 2025",
         quote: "Echipa a avut atât de multă răbdare cu numeroasele noastre modificări. Rezultatul final a surprins perfect povestea noastră. Recomandăm cu drag pachetul Luxury!",
         avatar: "AI",
     },
@@ -34,7 +34,7 @@ export default function Testimonials() {
                 className="text-center mb-14"
             >
                 <p className="text-[11px] uppercase tracking-[0.3em] text-[#b8a080] mb-3">Love Stories</p>
-                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">What Couples Say</h2>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#3d3429]">Ce spun cuplurile</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 gap-5 max-w-2xl mx-auto">
