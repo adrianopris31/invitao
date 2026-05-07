@@ -34,10 +34,15 @@ export default function CTA() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button className="flex items-center justify-center gap-2 bg-[#c9a96e] text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-[#b8986a] transition-colors duration-300 shadow-xl">
-                        Discută cu noi
+                    <a
+                        href="https://ig.me/m/adiopris31"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 bg-[#c9a96e] text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-[#b8986a] transition-colors duration-300 shadow-xl"
+                    >
+                        Discută cu noi pe Instagram
                         <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </a>
                 </div>
             </motion.div>
         </section>
