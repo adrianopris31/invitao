@@ -7,10 +7,19 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
-    public function index($slug){
-        $guests = Guest::where('slug', $slug)->get();
+    public function index(Request $request, $slug){
+        $limit = $request->integer('limit', 5);
 
-        return response()->json(['guests' => $guests], 200);
+        $guests = Guest::where('slug', $slug)
+            ->orderBy('created_at', 'desc')
+            ->paginate($limit);
+
+        return response()->json([
+            'guests' => $guests->items(),
+            'total'  => $guests->total(),
+            'page'   => $guests->currentPage(),
+            'pages'  => $guests->lastPage(),
+        ], 200);
     }
 
     public function store(Request $request){

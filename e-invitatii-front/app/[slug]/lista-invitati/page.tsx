@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Guest {
     name: string;
     email: string;
@@ -5,11 +7,21 @@ interface Guest {
     created_at: string;
 }
 
-export default async function GuestList({ params }: { params: Promise<{ slug: string }> }) {
+const LIMIT = 20;
+
+export default async function GuestList({
+    params,
+    searchParams,
+}: {
+    params: Promise<{ slug: string }>;
+    searchParams: Promise<{ page?: string }>;
+}) {
     const { slug } = await params;
+    const { page: pageParam } = await searchParams;
+    const page = Math.max(1, parseInt(pageParam ?? "1"));
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    const res = await fetch(`${API_URL}guests/${slug}`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}guests/${slug}?page=${page}&limit=${LIMIT}`, { cache: "no-store" });
 
     if (!res.ok)
         return (
@@ -20,8 +32,10 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
 
     const data = await res.json();
     const guests: Guest[] = data.guests;
-
+    const total: number = data.total ?? guests.length;
+    const totalPages: number = data.pages ?? 1;
     const totalPeople = guests.reduce((sum, g) => sum + g.count, 0);
+    const offset = (page - 1) * LIMIT;
 
     const weddingName = slug
         .split("-")
@@ -47,9 +61,7 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
                 {/* Header */}
                 <div className="text-center mb-10">
                     <p className="text-(--theme-primary) tracking-[0.3em] text-xs uppercase mb-3 font-light">Confirmări</p>
-                    <h1 className="font-eb-garamond text-4xl md:text-5xl text-[#5c4a3a]">
-                        {weddingName}
-                    </h1>
+                    <h1 className="font-eb-garamond text-4xl md:text-5xl text-[#5c4a3a]">{weddingName}</h1>
                     <div className="flex items-center justify-center gap-3 mt-4">
                         <div className="h-px w-16 bg-(--theme-primary) opacity-60"/>
                         <svg className="w-3.5 h-3.5 text-(--theme-primary) opacity-70" viewBox="0 0 24 24" fill="currentColor">
@@ -61,13 +73,15 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
 
                 {/* Stats */}
                 <div className="flex justify-center gap-4 mb-8 flex-wrap">
-                    <div className="bg-white/80 border border-(--theme-primary-lighter) rounded-2xl px-6 py-4 text-center shadow-sm min-w-[130px]">
-                        <p className="text-3xl font-eb-garamond text-[#5c4a3a]">{guests.length}</p>
+                    <div className="bg-white/80 border border-(--theme-primary-lighter) rounded-2xl px-6 py-4 text-center shadow-sm min-w-32.5">
+                        <p className="text-3xl font-eb-garamond text-[#5c4a3a]">{total}</p>
                         <p className="text-(--theme-primary-light) text-xs tracking-widest uppercase mt-1">familii</p>
                     </div>
-                    <div className="bg-white/80 border border-(--theme-primary-lighter) rounded-2xl px-6 py-4 text-center shadow-sm min-w-[130px]">
+                    <div className="bg-white/80 border border-(--theme-primary-lighter) rounded-2xl px-6 py-4 text-center shadow-sm min-w-32.5">
                         <p className="text-3xl font-eb-garamond text-[#5c4a3a]">{totalPeople}</p>
-                        <p className="text-(--theme-primary-light) text-xs tracking-widest uppercase mt-1">persoane</p>
+                        <p className="text-(--theme-primary-light) text-xs tracking-widest uppercase mt-1">
+                            {totalPages > 1 ? `persoane (p. ${page})` : "persoane"}
+                        </p>
                     </div>
                 </div>
 
@@ -88,7 +102,7 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
                                             <p className="text-(--theme-primary) text-sm mt-0.5 truncate">{guest.email}</p>
                                         </div>
                                         <div className="shrink-0 bg-(--theme-bg-from) border border-(--theme-primary-lighter) rounded-full px-3 py-1 text-(--theme-primary) text-sm font-medium">
-                                            {guest.count} {guest.count === 1 ? "pers." : "pers."}
+                                            {guest.count} pers.
                                         </div>
                                     </div>
                                     <p className="text-(--theme-primary-light) text-xs mt-3 tracking-wide">
@@ -117,7 +131,7 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
                                 <tbody>
                                     {guests.map((guest, i) => (
                                         <tr key={i} className="border-b border-(--theme-bg-mid) last:border-0 hover:bg-(--theme-bg-from) transition-colors">
-                                            <td className="px-6 py-4 text-(--theme-primary-light) text-sm">{i + 1}</td>
+                                            <td className="px-6 py-4 text-(--theme-primary-light) text-sm">{offset + i + 1}</td>
                                             <td className="px-6 py-4 font-eb-garamond text-lg text-[#5c4a3a]">{guest.name}</td>
                                             <td className="px-6 py-4 text-(--theme-primary) text-sm">{guest.email}</td>
                                             <td className="px-6 py-4 text-center">
@@ -137,9 +151,74 @@ export default async function GuestList({ params }: { params: Promise<{ slug: st
                                 </tbody>
                             </table>
                         </div>
+
+                        {/* Pagination */}
+                        {totalPages > 1 && (
+                            <div className="flex items-center justify-center gap-2 mt-8">
+                                <PaginationLink slug={slug} page={page - 1} disabled={page <= 1}>
+                                    ←
+                                </PaginationLink>
+
+                                {getPageNumbers(page, totalPages).map((p, i) =>
+                                    p === "..." ? (
+                                        <span key={i} className="px-2 text-(--theme-primary-light) text-sm">…</span>
+                                    ) : (
+                                        <PaginationLink key={p} slug={slug} page={p as number} active={p === page}>
+                                            {p}
+                                        </PaginationLink>
+                                    )
+                                )}
+
+                                <PaginationLink slug={slug} page={page + 1} disabled={page >= totalPages}>
+                                    →
+                                </PaginationLink>
+                            </div>
+                        )}
                     </>
                 )}
             </div>
         </div>
     );
+}
+
+function PaginationLink({
+    slug,
+    page,
+    active,
+    disabled,
+    children,
+}: {
+    slug: string;
+    page: number;
+    active?: boolean;
+    disabled?: boolean;
+    children: React.ReactNode;
+}) {
+    const base = "w-9 h-9 flex items-center justify-center rounded-xl text-sm transition-all";
+
+    if (disabled)
+        return <span className={`${base} text-(--theme-primary-lighter) cursor-not-allowed`}>{children}</span>;
+
+    if (active)
+        return (
+            <span className={`${base} bg-(--theme-primary) text-white font-medium shadow-sm`}>{children}</span>
+        );
+
+    return (
+        <Link
+            href={`/${slug}/lista-invitati?page=${page}`}
+            className={`${base} bg-white/80 border border-(--theme-primary-lighter) text-(--theme-primary) hover:border-(--theme-primary) hover:shadow-sm`}
+        >
+            {children}
+        </Link>
+    );
+}
+
+function getPageNumbers(current: number, total: number): (number | "...")[] {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+
+    if (current <= 4) return [1, 2, 3, 4, 5, "...", total];
+    if (current >= total - 3) return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+
+    return [1, "...", current - 1, current, current + 1, "...", total];
 }
