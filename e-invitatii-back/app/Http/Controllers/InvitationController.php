@@ -9,7 +9,7 @@ class InvitationController extends Controller
 {
     public function show(string $slug): JsonResponse
     {
-        $invitation = Invitation::where('slug', $slug)->firstOrFail();
+        $invitation = Invitation::with('theme')->where('slug', $slug)->firstOrFail();
 
         return response()->json([
             'success' => true,
