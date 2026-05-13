@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
 export default function EnvelopeHero({ data }: any) {
     function getFormattedDate(date: Date) {
@@ -43,7 +44,9 @@ export default function EnvelopeHero({ data }: any) {
                             boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
                         }}
                     >
-                        <p className="text-[11px] uppercase tracking-[0.25em] text-(--theme-primary) mb-1">Impreună, cu drag</p>
+                        <p className="text-[11px] uppercase tracking-[0.25em] text-(--theme-primary) mb-1">
+                            Impreună, cu drag
+                        </p>
                         <p className="font-serif text-lg text-[#3d3429] leading-tight">{data.client_names}</p>
                         <div className="w-8 h-[1px] bg-[#c9a96e] mt-2" />
                     </div>
@@ -59,7 +62,8 @@ export default function EnvelopeHero({ data }: any) {
                         <div
                             className="absolute inset-0 rounded-lg"
                             style={{
-                                background: "linear-gradient(180deg, var(--theme-primary-lighter) 0%, var(--theme-primary-light) 100%)",
+                                background:
+                                    "linear-gradient(180deg, var(--theme-primary-lighter) 0%, var(--theme-primary-light) 100%)",
                                 boxShadow: "0 8px 32px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06)",
                             }}
                         />
@@ -69,7 +73,8 @@ export default function EnvelopeHero({ data }: any) {
                             className="absolute -top-12 left-0 right-0 h-20"
                             style={{
                                 clipPath: "polygon(0% 100%, 50% 20%, 100% 100%)",
-                                background: "linear-gradient(180deg, var(--theme-primary-lighter) 0%, var(--theme-primary-light) 100%)",
+                                background:
+                                    "linear-gradient(180deg, var(--theme-primary-lighter) 0%, var(--theme-primary-light) 100%)",
                             }}
                         />
 
@@ -80,7 +85,8 @@ export default function EnvelopeHero({ data }: any) {
                                 className="absolute inset-0"
                                 style={{
                                     clipPath: "polygon(0% 30%, 50% 65%, 100% 30%, 100% 100%, 0% 100%)",
-                                    background: "linear-gradient(180deg, var(--theme-primary-light) 0%, color-mix(in srgb, var(--theme-primary-light) 75%, black) 100%)",
+                                    background:
+                                        "linear-gradient(180deg, var(--theme-primary-light) 0%, color-mix(in srgb, var(--theme-primary-light) 75%, black) 100%)",
                                 }}
                             />
                             {/* Left fold — lighter, catches light */}
@@ -88,7 +94,8 @@ export default function EnvelopeHero({ data }: any) {
                                 className="absolute inset-0"
                                 style={{
                                     clipPath: "polygon(0% 0%, 50% 65%, 0% 100%)",
-                                    background: "linear-gradient(135deg, color-mix(in srgb, var(--theme-primary-lighter) 60%, white) 0%, var(--theme-primary-lighter) 100%)",
+                                    background:
+                                        "linear-gradient(135deg, color-mix(in srgb, var(--theme-primary-lighter) 60%, white) 0%, var(--theme-primary-lighter) 100%)",
                                 }}
                             />
                             {/* Right fold — darker, in shadow */}
@@ -96,12 +103,16 @@ export default function EnvelopeHero({ data }: any) {
                                 className="absolute inset-0"
                                 style={{
                                     clipPath: "polygon(100% 0%, 50% 65%, 100% 100%)",
-                                    background: "linear-gradient(225deg, color-mix(in srgb, var(--theme-primary-light) 80%, black) 0%, color-mix(in srgb, var(--theme-primary) 60%, var(--theme-primary-light)) 100%)",
+                                    background:
+                                        "linear-gradient(225deg, color-mix(in srgb, var(--theme-primary-light) 80%, black) 0%, color-mix(in srgb, var(--theme-primary) 60%, var(--theme-primary-light)) 100%)",
                                 }}
                             />
 
                             {/* Fold crease lines */}
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: "visible" }}>
+                            <svg
+                                className="absolute inset-0 w-full h-full pointer-events-none"
+                                style={{ overflow: "visible" }}
+                            >
                                 <line x1="0%" y1="0%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.18)" strokeWidth="0.8" />
                                 <line x1="100%" y1="0%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.12)" strokeWidth="0.8" />
                                 <line x1="0%" y1="30%" x2="50%" y2="65%" stroke="rgba(0,0,0,0.14)" strokeWidth="0.8" />

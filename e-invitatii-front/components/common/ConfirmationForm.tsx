@@ -91,7 +91,7 @@ export default function ConfirmationForm({ slug }: any) {
 
     return (
         <div className="max-w-md mx-auto">
-            <div className="px-8 rounded-3xl border border-gray-100 transition-all duration-300">
+            <div className="px-8 py-10 rounded-3xl transition-all duration-300 flex justify-center items-center">
                 <AnimatePresence mode="wait">
                     {step === "button" && (
                         <motion.div
@@ -100,7 +100,7 @@ export default function ConfirmationForm({ slug }: any) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-center mb-14"
+                            className="text-center"
                         >
                             <div className="text-center space-y-4">
                                 <h2 className="font-serif text-2xl sm:text-3xl text-[#3d3429] mb-3">Sau</h2>
@@ -212,7 +212,7 @@ export default function ConfirmationForm({ slug }: any) {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="text-center mb-14"
+                            className="text-center"
                         >
                             <div className="text-center pt-6 animate-in fade-in zoom-in duration-500">
                                 <motion.div
