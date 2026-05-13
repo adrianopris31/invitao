@@ -32,4 +32,9 @@ class Invitation extends Model
         'family_details' => 'array',
         'client_details' => 'array',
     ];
+
+    public function theme()
+    {
+        return $this->belongsTo(Theme::class);
+    }
 }
